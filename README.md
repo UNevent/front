@@ -3,17 +3,17 @@
   - Descargar NodeJS del siquiente enlace:
     - [Enlace](https://nodejs.org/es/download/)
   - Abrir una consola de comandos y ejecutar el comando:
-    - npm install -g react-native-cli
+    - `npm install -g react-native-cli`
   
 ## Despliegue
   - Tener una consola de comandos ubicada dentro de la carpeta del proyecto y ejecutar el comando (puede tomar bastante tiempo la instalación):
-    - npm install
+    - `npm install`
   - Instalar la app movil "Expo" disponible para Android y iOS
   - Ir al apartado de perfil y registrarse
   - Iniciar sesión si no se ha iniciado automáticamente
-  - En la consola, usar el comando "expo login" para iniciar sesión con las credenciales usadas en la app movil
+  - En la consola, usar el comando `expo login` para iniciar sesión con las credenciales usadas en la app movil
   - Usar el comando:
-    - expo start
+    - `expo start`
     
     para iniciar la aplicación
   - Se abrirá una pestaña en el navegador predeterminado y se mostrará un código QR en la pestaña y en la consola
