@@ -23,10 +23,10 @@
 ## Estructura del proyecto
   - El proyecto usa un módulo llamado "Storybook" que permite tener componentes en desarrollo de forma individual
   - El módulo mencionado permite tener el ambiente de componentes separado del ambiente de la aplicación integrada
-  - Para visualizar el modo de aplicación, dirigirse al archivo package.json y cambiar la línea:
-    - "main": "./storybook/index.js" por "main": "./app/index.js"
+  - Para visualizar el modo de aplicación, dirigirse al archivo `package.json` y cambiar la línea:
+    - `"main": "./storybook/index.js"` por `"main": "./app/index.js"`
     - Reiniciar la aplicación
   - Para visualizar el modo de desarrollo de componentes dirigirse al mismo archivo y cambiar la línea:
-    - "main": "./app/index.js" por "main": "./storybook/index.js"
+    - `"main": "./app/index.js"` por `"main": "./storybook/index.js"`
     - Reiniciar la aplicación
    
