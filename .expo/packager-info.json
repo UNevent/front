@@ -1,9 +1,9 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 9712,
-  "expoServerNgrokUrl": "https://p5-cri.dafrodriguezro.unevent.exp.direct",
-  "packagerNgrokUrl": "https://packager.p5-cri.dafrodriguezro.unevent.exp.direct",
-  "ngrokPid": 744,
+  "packagerPid": 14828,
+  "expoServerNgrokUrl": "https://p5-cri.anonymous.uneventfront.exp.direct",
+  "packagerNgrokUrl": "https://packager.p5-cri.anonymous.uneventfront.exp.direct",
+  "ngrokPid": 14252,
   "devToolsPort": 19002
 }
