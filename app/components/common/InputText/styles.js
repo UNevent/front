@@ -6,13 +6,13 @@ const { width: WIDTH } = Dimensions.get('window')
 export default EStyleSheet.create({
   input:{
     width: WIDTH - 55,
-    height: 45,
-    borderRadius: 30,
+    height: 40,
+    borderRadius: 15,
     fontSize: 16,
     paddingLeft: 25,
     backgroundColor: 'rgba(0,0,0,0.35)',
     color: 'rgba(255,255,255,0.7)',
     marginHorizontal:25,
-    marginVertical:  15
+    marginVertical:  7
   }
 });

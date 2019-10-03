@@ -13,5 +13,12 @@ export default EStyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.35)',
     color: 'rgba(255,255,255,0.7)',
     marginHorizontal:25 
+  },
+  title:{
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    
   }
 });
