@@ -7,12 +7,16 @@ export default EStyleSheet.create({
   input:{
     width: WIDTH - 55,
     height: 40,
-    borderRadius: 15,
-    fontSize: 16,
-    paddingLeft: 25,
     backgroundColor: 'rgba(0,0,0,0.35)',
-    color: 'rgba(255,255,255,0.7)',
+    //color: 'rgba(255,255,255,0.7)',
+   
     marginHorizontal:25,
     marginVertical:  7
+  },
+  label:{
+    color: 'rgba(255,255,255,0.7)',
+  },
+  icon:{    
+    paddingRight: 15,
   }
 });

@@ -2,11 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View } from "react-native";
 
-import AccessBackgroundView from'.';
+import BackgroundView from'.';
 
 const CenteredView = ({ children }) => <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>{children}</View>;
 
 
-storiesOf('AccessBackgroundView', module)
+storiesOf('BackgroundView', module)
   //.addDecorator(content => <CenteredView>{content()}</CenteredView>)
-  .add('default view', () => <AccessBackgroundView/>);
+  .add('default view', () => <BackgroundView/>);

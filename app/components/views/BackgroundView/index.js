@@ -5,18 +5,19 @@ import styles  from './styles.js';
 import backmap from '../../../assets/backmap.png';
 import unlogo from '../../../assets/unlogo.png';
 import RegisterView from "../RegisterView/index.js";
+import AccessView from "../AccessView/index.js";
 
-const AccessBackgroundView = ({ goToTreeDetails, points, level, trees }) => {
+const BackgroundView = ({ goToTreeDetails, points, level, trees }) => {
 
   	return (
 	    <ImageBackground source={backmap} style={styles.backmap}>
 	    	<View style={styles.container}>
           <Image source={unlogo} style={styles.logo}></Image>
 	    		<Text style={styles.title}>UNEvent</Text>
-					<RegisterView></RegisterView>
+					<AccessView></AccessView>
 	    	</View>
 	    </ImageBackground>
   	);
 };
 
-export default AccessBackgroundView;
+export default BackgroundView;
