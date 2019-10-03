@@ -7,7 +7,7 @@ const AccessView = ({ goToTreeDetails, points, level, trees }) => {
   	return (
 	    <View style={styles.principal}>
 	    	<View style={styles.container}>
-	    		<Text style={styles.title}>UNEvent</Text>
+	    		<Text style={styles.title}>UNEvent!!</Text>
 	    	</View>
 	    </View>
   	);
