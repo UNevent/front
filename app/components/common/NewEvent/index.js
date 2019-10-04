@@ -11,11 +11,11 @@ const NewEventView = ({}) => {
       <View style={styles.container}>
         <View>
           <InputText placeholder={"Nombre evento:"} ></InputText>
-          <InputText placeholder={"Fecha"}></InputText>
-          <ButtonIcon icon={'calendar'} ></ButtonIcon>
+          <InputText placeholder={"Fecha"} icon={'calendar'} style={styles.inputDate}></InputText>
+          
           <View>
-            <InputText placeholder={"Lugar"} ></InputText>
-            <ButtonIcon icon={'map-marker'} ></ButtonIcon>
+            <InputText placeholder={"Lugar"} icon={'map-marker'}></InputText>
+
             <InputText placeholder={"Salón"}  ></InputText>
           </View>
         <ButtonText name={"Seleccionar imagen"} background={'outline'}></ButtonText>

@@ -6,3 +6,5 @@ import "./Access/story";
 import "./Register/story";
 import "./Login/story";
 import "./NewEvent/story";
+import "./CardEvent/story";
+import "./CardHeader/story";

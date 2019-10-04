@@ -8,7 +8,7 @@ const RegisterView = ({}) => {
 
   	return (
       <View style={styles.container}>
-        <Text style={styles.title}>Registrate!</Text>
+        <Text style={styles.title}>Registráte!</Text>
         <View style={styles.container}>
           <InputText placeholder={"Usuario:"} icon={'user'}></InputText>
           <InputText placeholder={"Correo:"} icon={'envelope'}></InputText>
