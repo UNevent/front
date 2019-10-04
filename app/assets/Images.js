@@ -1,5 +1,5 @@
 export default {
-  mano: require('./icons/mano.png'),
-  hoja: require('./icons/hoja.png'),
-  pino: require('./icons/pino.png'),
+  unLogo: require('./unlogo.png'),
+  backmap: require('./backmap.png'),
+  map_back: require('./map_background.png'),
 }

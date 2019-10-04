@@ -19,8 +19,6 @@ const Map = ({reg, marks, onRegionChangeCB, onMapReadyCB, onPressCB}) => {
 				onPress= {onPressCB}
 			>
 
-				 <Image source={Images.hoja} style={styles.image}/>
-
 			</MapView.Marker>
 		))
 

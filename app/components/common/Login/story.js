@@ -1,10 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
+import { View } from "react-native";
 
-import UNEventHeader from '.';
+import LoginView from'.';
 
 const CenteredView = ({ children }) => <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>{children}</View>;
 
-storiesOf('Common / UNEventHeader', module)
-  // .addDecorator(content => <CenteredView>{content()}</CenteredView>)
-  .add('default view', () => <UNEventHeader/>)
+
+storiesOf('Commons/Login', module)
+  //.addDecorator(content => <CenteredView>{content()}</CenteredView>)
+  .add('default view', () => <LoginView/>);

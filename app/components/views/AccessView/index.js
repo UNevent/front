@@ -1,23 +1,26 @@
 import React from "react";
-import {  View, Text } from "react-native";
-import ButtonText from '../../common/ButtonText/index.js'
-import styles from './styles.js';
+import PropTypes from "prop-types";
+import { View, Text, ImageBackground, Image, StyleSheet } from "react-native";
+//import styles from '../../../assets/styles/general/styles';
+import styles  from './styles';
+import Access from "../../common/Access";
+import Images from '../../../assets/Images';
 
-const AccessView = ({ goToTreeDetails, points, level, trees }) => {
-
+const AccessView = ({ goToRegister, goToLogin }) => {
   	return (
-			<View style={styles.container}>
-				<Text style={styles.title}>Bienvenido!</Text>
-					<View>					
-					<ButtonText name={"Registrarse"}></ButtonText>
-					<Text style={styles.description}>Registráte para crear eventos</Text>
-					<ButtonText name={"Ya soy UNEventor"}></ButtonText>
-					<Text style={styles.description}>Ingresa con tu cuenta</Text>
-					<ButtonText name={"Acceder como invitado"} background={'outline'}></ButtonText>
-					<Text style={styles.description}>Si sólo quieres ver los eventos</Text>
-				</View>
-			</View>
+	    <ImageBackground source={Images.backmap} style={styles.backmap}>
+	    	<View style={styles.container}>
+          	<Image source={Images.unLogo} style={styles.logo}></Image>
+	    		<Text style={styles.title}>UNEvent</Text>
+				<Access registrar={goToRegister} ingresar={goToLogin}></Access>
+	    	</View>
+	    </ImageBackground>
   	);
+};
+
+AccessView.propTypes = {
+  goToRegister: PropTypes.func.isRequired,
+  goToLogin: PropTypes.func.isRequired,
 };
 
 export default AccessView;

@@ -2,11 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View } from "react-native";
 
-import BackgroundView from'.';
+import RegisterView from'.';
 
 const CenteredView = ({ children }) => <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>{children}</View>;
 
 
-storiesOf('BackgroundView', module)
+storiesOf('Commons/Register', module)
   //.addDecorator(content => <CenteredView>{content()}</CenteredView>)
-  .add('default view', () => <BackgroundView/>);
+  .add('default view', () => <RegisterView/>);

@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
-import styles  from './styles.js';
-import InputText from "../../common/InputText/index.js";
-import ButtonText from "../../common/ButtonText/index.js";
-import ButtonIcon from "../../common/ButtonIcon/index.js";
+import styles  from './styles';
+import InputText from "../InputText/index";
+import ButtonText from "../ButtonText/index";
+import ButtonIcon from "../ButtonIcon/index";
 
-const NewEventView = ({ goToTreeDetails, points, level, trees }) => {
+const NewEventView = ({}) => {
 
   	return (
       <View style={styles.container}>

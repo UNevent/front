@@ -1,9 +1,9 @@
 {
+  "expoServerNgrokUrl": "https://kg-da2.dafrodriguezro.unevent-frontend-mobile.exp.direct",
+  "packagerNgrokUrl": "https://packager.kg-da2.dafrodriguezro.unevent-frontend-mobile.exp.direct",
+  "ngrokPid": 520,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 19872,
-  "expoServerNgrokUrl": "https://ns-2cg.anonymous.uneventfront.exp.direct",
-  "packagerNgrokUrl": "https://packager.ns-2cg.anonymous.uneventfront.exp.direct",
-  "ngrokPid": 3500,
-  "devToolsPort": 19002
+  "packagerPid": 6960
 }

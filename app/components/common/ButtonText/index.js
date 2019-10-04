@@ -8,10 +8,10 @@ EStyleSheet.build({
   $textColor: '#0275d8'
 })
 
-const ButtonText = ({ name, background }) => {
+const ButtonText = ({ name, background, evento }) => {
   return (
       <Button title={name} type={background} 
-        buttonStyle={styles.button} titleStyle={styles.text}/>
+        buttonStyle={styles.button} titleStyle={styles.text} onPress={evento}/>
 
   )
 }

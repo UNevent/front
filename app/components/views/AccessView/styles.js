@@ -1,15 +1,24 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-export default EStyleSheet.create({ 
-  title:{
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    textAlign: 'center',
+export default EStyleSheet.create({
+  backmap:{
+    flex:1,
+    width: null,
+    height: null,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  description:{
+  logo:{
+    width: 120,
+    height: 120,
+    alignSelf: "center"
+  },
+
+
+  title: {
     color: 'white',
-    fontSize: 10,
+    fontSize: 50,
+    fontWeight: 'bold',
     textAlign: 'center',
   }
 });

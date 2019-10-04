@@ -1,11 +1,10 @@
 import React from 'react';
-import LandingView from '../../components/views/LandingView'
+import AccessView from '../../components/views/AccessView';
 
 const LandingScreen = ({ navigation }) => {
-  return <LandingView 
-    goToQRScanner={() => navigation.navigate('QRScannerScreen')}
-    gotToAlbum={() => navigation.navigate('AlbumScreen')}
-    gotToTreeListMap={() => navigation.navigate('TreeListMapScreen')}
+  return <AccessView 
+  	goToRegister={() => navigation.navigate('RegisterScreen')}
+  	goToLogin={() => navigation.navigate('LoginScreen')}
   />;
 }
 

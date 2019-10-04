@@ -7,6 +7,6 @@ import AccessView from'.';
 const CenteredView = ({ children }) => <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>{children}</View>;
 
 
-storiesOf('AccessView', module)
+storiesOf('Views/AccessView', module)
   //.addDecorator(content => <CenteredView>{content()}</CenteredView>)
   .add('default view', () => <AccessView/>);

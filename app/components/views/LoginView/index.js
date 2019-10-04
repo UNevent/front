@@ -1,20 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
-import styles  from './styles.js';
-import InputText from "../../common/InputText/index.js";
-import ButtonText from "../../common/ButtonText/index.js";
+import PropTypes from "prop-types";
+import { View, Text, ImageBackground, Image, StyleSheet } from "react-native";
+//import styles from '../../../assets/styles/general/styles';
+import styles  from './styles';
+import Login from "../../common/Login";
+import Images from '../../../assets/Images';
 
-const LoginView = ({ goToTreeDetails, points, level, trees }) => {
-
+const LoginView = ({}) => {
   	return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Registráte!</Text>
-            <View style={styles.containerInputs}>
-                <InputText placeholder={"Correo:"} icon={'envelope'}></InputText>
-                <InputText placeholder={"Contraseña:"} icon={'key'}></InputText>
-            </View>
-            <ButtonText name={"Acceder"}></ButtonText>
-        </View>
+	    <ImageBackground source={Images.backmap} style={styles.backmap}>
+	    	<View style={styles.container}>
+          	<Image source={Images.unLogo} style={styles.logo}></Image>
+	    		<Text style={styles.title}>UNEvent</Text>
+				<Login></Login>
+	    	</View>
+	    </ImageBackground>
   	);
 };
 

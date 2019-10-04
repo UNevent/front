@@ -1,5 +1,5 @@
 {
-  "main": "./storybook/index.js",
+  "main": "./app/index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",

@@ -1,23 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
-import styles  from './styles.js';
-import InputText from "../../common/InputText/index.js";
-import ButtonText from "../../common/ButtonText/index.js";
+import PropTypes from "prop-types";
+import { View, Text, ImageBackground, Image, StyleSheet } from "react-native";
+//import styles from '../../../assets/styles/general/styles';
+import styles  from './styles';
+import Register from "../../common/Register";
+import Images from '../../../assets/Images';
 
-const RegisterView = ({ goToTreeDetails, points, level, trees }) => {
-
+const RegisterView = ({}) => {
   	return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Hola de nuevo!</Text>
-        <View style={styles.container}>
-          <InputText placeholder={"Usuario:"} icon={'user'}></InputText>
-          <InputText placeholder={"Correo:"} icon={'envelope'}></InputText>
-          <InputText placeholder={"Contraseña:"} icon={'key'}></InputText>
-          <InputText placeholder={"Verificar contraseña:"}  icon={'key'}></InputText>
-        </View>
-        <ButtonText name={"Acceder"}></ButtonText>
-      
-      </View>
+	    <ImageBackground source={Images.backmap} style={styles.backmap}>
+	    	<View style={styles.container}>
+          	<Image source={Images.unLogo} style={styles.logo}></Image>
+	    		<Text style={styles.title}>UNEvent</Text>
+				<Register></Register>
+	    	</View>
+	    </ImageBackground>
   	);
 };
 
