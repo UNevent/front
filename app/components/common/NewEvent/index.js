@@ -3,13 +3,13 @@ import { View, Text } from "react-native";
 import styles  from './styles';
 import InputText from "../InputText/index";
 import ButtonText from "../ButtonText/index";
-import ButtonIcon from "../ButtonIcon/index";
+import TextArea from "../TextArea/index";
 
 const NewEventView = ({}) => {
 
   	return (
       <View style={styles.container}>
-        <View>
+        
           <InputText placeholder={"Nombre evento:"} ></InputText>
           <InputText placeholder={"Fecha"} icon={'calendar'} style={styles.inputDate}></InputText>
           
@@ -18,9 +18,9 @@ const NewEventView = ({}) => {
 
             <InputText placeholder={"Salón"}  ></InputText>
           </View>
+          <TextArea placeholder={"Descripción"}></TextArea>
         <ButtonText name={"Seleccionar imagen"} background={'outline'}></ButtonText>
-        </View>
-        <ButtonText name={"Publicar"}></ButtonText>
+        
       
       </View>
   	);

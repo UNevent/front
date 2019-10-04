@@ -9,6 +9,7 @@
     "storybook": "node node_modules/@storybook/react-native-server/bin -p 6006"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^2.1.0",
     "expo": "^34.0.1",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
