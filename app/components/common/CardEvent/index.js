@@ -1,13 +1,11 @@
 import React from 'react';
-import {  Text, TouchableOpacity } from 'react-native'
 import { Card, Button } from 'react-native-elements'
 import styles from './styles.js';
 import PropTypes from 'prop-types'
 import  CardHeader  from '../CardHeader';
 
-const CardEvent = ({ poster, event, place, username,followers }) => {
+const CardEvent = ({ poster, event, place, username,followers, follow }) => {
   return (
-    <TouchableOpacity> 
       <Card
         containerStyle={styles.container}
         image={{uri:poster}}>
@@ -16,10 +14,10 @@ const CardEvent = ({ poster, event, place, username,followers }) => {
                     place={place}
                     username={username}
                     followers={followers}
+                    follow={follow}
                     />
         
       </Card>
-    </TouchableOpacity>
   )
 }
 

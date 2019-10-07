@@ -1,10 +1,8 @@
 import React from 'react';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import styles from './styles.js';
 import PropTypes from 'prop-types'
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Input } from 'react-native-elements';
-import { TextInput } from "react-native-gesture-handler";
 import { Dimensions } from 'react-native';
 
 const { width: WIDTH } = Dimensions.get('window')
@@ -20,10 +18,11 @@ const InputText = ({ placeholder, icon, width, passBool }) => {
       selectionColor="#DFDFDF"
       underlineColorAndroid="#DFDFDF"
       secureTextEntry={passBool}
-      leftIcon={
+      leftIcon={icon == '' ? null :
         <Icon
           name={icon}
           size={24}
+          type={'material'}
           color='#999'
           style={styles.icon}
         />

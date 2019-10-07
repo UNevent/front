@@ -3,9 +3,9 @@ import {  Text, View } from 'react-native'
 import styles from './styles.js';
 import PropTypes from 'prop-types'
 import { Dimensions } from 'react-native';
-import ButtonIcon from '../ButtonIcon/index.js';
+import ButtonFav from '../ButtonFav/index.js';
 
-const CardHeader = ({  event, place, username,followers }) => {
+const CardHeader = ({  event, place, username,followers, follow }) => {
   return (
     <View style={styles.container}>
       <View style={styles.dateContainer}>
@@ -18,7 +18,7 @@ const CardHeader = ({  event, place, username,followers }) => {
         <Text style={styles.username}>{username}</Text>
       </View>
       <View style={styles.follow}>
-        <ButtonIcon icon={'star'}></ButtonIcon>
+        <ButtonFav check={follow}></ButtonFav>
         <Text>{followers}</Text>
       </View>
     </View>

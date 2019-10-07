@@ -10,8 +10,8 @@ const LoginView = ({ ingresar }) => {
         <View style={styles.container}>
             <Text style={styles.title}>Ingresa!</Text>
             <View style={styles.containerInputs}>
-                <InputText placeholder={"Correo"} icon={'envelope'}></InputText>
-                <InputText passBool={true} placeholder={"Contraseña"} icon={'key'}></InputText>
+                <InputText placeholder={"Correo"} icon={'email'}></InputText>
+                <InputText passBool={true} placeholder={"Contraseña"} icon={'vpn-key'}></InputText>
             </View>
             <ButtonText name={"Acceder"} evento={ingresar}></ButtonText>
         </View>

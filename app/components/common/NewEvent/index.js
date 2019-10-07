@@ -11,10 +11,10 @@ const NewEventView = ({}) => {
       <View style={styles.container}>
         
           <InputText placeholder={"Nombre evento:"} ></InputText>
-          <InputText placeholder={"Fecha"} icon={'calendar'} style={styles.inputDate}></InputText>
+          <InputText placeholder={"Fecha"} icon={'event'} style={styles.inputDate}></InputText>
           
           <View>
-            <InputText placeholder={"Lugar"} icon={'map-marker'}></InputText>
+            <InputText placeholder={"Lugar"} icon={'map'}></InputText>
 
             <InputText placeholder={"Salón"}  ></InputText>
           </View>

@@ -1,9 +1,9 @@
 {
-  "expoServerNgrokUrl": "https://8z-rnf.dafrodriguezro.unevent-frontend-mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.8z-rnf.dafrodriguezro.unevent-frontend-mobile.exp.direct",
-  "ngrokPid": 5808,
+  "expoServerNgrokUrl": "https://8z-rnf.anonymous.unevent-front.exp.direct",
+  "packagerNgrokUrl": "https://packager.8z-rnf.anonymous.unevent-front.exp.direct",
+  "ngrokPid": 13304,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 8776
+  "packagerPid": 11856
 }

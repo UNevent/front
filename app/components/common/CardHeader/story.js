@@ -14,4 +14,5 @@ storiesOf('Commons / CardHeader', module)
                   place={"lugar"}
                   username={"cuenta que lo creo"}
                   followers={123}
+                  check={false}
                   />);

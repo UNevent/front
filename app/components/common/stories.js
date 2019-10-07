@@ -1,5 +1,6 @@
 import "./ButtonText/story";
-import "./ButtonIcon/story"
+import "./ButtonIcon/story";
+import "./ButtonFav/story";
 import "./InputText/story";
 import "./Map/story";
 import "./Access/story";

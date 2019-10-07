@@ -10,7 +10,7 @@ export default EStyleSheet.create({
     padding: '0.2rem'
   },
   dateContainer:{
-    flex: 1,
+    flex: 2,
     width: WIDTH / 5,
     height: WIDTH / 5,
     borderWidth: 1,
@@ -23,14 +23,16 @@ export default EStyleSheet.create({
     color: '#333399'
   },
   info:{
-    flex: 3,
+    flex: 5,
     marginLeft: 1,
     padding: '0.3rem'
   },
   follow:{
     flex: 1,
     flexDirection: 'row-reverse',
-    padding: '1rem'
+    padding: '1rem',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
   event:{
     fontSize: 18,
