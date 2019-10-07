@@ -4,13 +4,13 @@ import styles from './styles';
 import PropTypes from 'prop-types'
 
 
-const ButtonIcon = ({ icon, size }) => {
+const ButtonIcon = ({ icon, size, evento }) => {
   return (
     <Icon
       name={icon}
       type='font-awesome'
       size={size}
-      onPress={() => console.log('hello')} />
+      onPress={evento} />
        
   )
 }

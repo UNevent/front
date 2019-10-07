@@ -30,7 +30,7 @@ const DATA = [
   }
 ]
 
-const HomeView = ({}) => {
+const HomeView = ({ goToNewEvent }) => {
   	return (
       
 	    <ImageBackground source={Images.backmap} style={styles.backmap}>
@@ -49,7 +49,7 @@ const HomeView = ({}) => {
             />
           </SafeAreaView >
           <View style={styles.buttonew}>
-            <ButtonIcon icon={'plus-circle'} size={50}></ButtonIcon>
+            <ButtonIcon icon={'plus-circle'} size={50} evento={goToNewEvent}></ButtonIcon>
           </View>
       </ImageBackground>
 
