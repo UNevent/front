@@ -8,7 +8,7 @@ export default EStyleSheet.create({
     width: WIDTH - 55,
     height: 40,
     backgroundColor: 'rgba(0,0,0,0.35)',
-    //color: 'rgba(255,255,255,0.7)',
+    //color: '#DFDFDF',
    
     marginHorizontal:25,
     marginVertical:  7

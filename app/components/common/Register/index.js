@@ -10,10 +10,10 @@ const RegisterView = ({}) => {
       <View style={styles.container}>
         <Text style={styles.title}>Registráte!</Text>
         <View style={styles.container}>
-          <InputText placeholder={"Usuario:"} icon={'user'}></InputText>
-          <InputText placeholder={"Correo:"} icon={'envelope'}></InputText>
-          <InputText placeholder={"Contraseña:"} icon={'key'}></InputText>
-          <InputText placeholder={"Verificar contraseña:"}  icon={'key'}></InputText>
+          <InputText placeholder={"Usuario"} icon={'user'}></InputText>
+          <InputText placeholder={"Correo"} icon={'envelope'}></InputText>
+          <InputText passBool={true} placeholder={"Contraseña"} icon={'key'}></InputText>
+          <InputText passBool={true} placeholder={"Verificar contraseña"}  icon={'key'}></InputText>
         </View>
         <ButtonText name={"Acceder"}></ButtonText>
       

@@ -30,7 +30,7 @@ const DATA = [
   }
 ]
 
-const HomeView = ({}) => {
+const HomeView = ({ goToNewEvent }) => {
   	return (
       
 	    <ImageBackground source={Images.backmap} style={styles.backmap}>
@@ -44,12 +44,12 @@ const HomeView = ({}) => {
                   place={item.place}
                   username={item.username}
                   followers={item.followers}
-                  />}
-              keyExtractor={item => item.id}
+                  />}              
+              keyExtractor={item => item.id.toString()}
             />
-          </SafeAreaView>
+          </SafeAreaView >
           <View style={styles.buttonew}>
-            <ButtonIcon icon={'plus-circle'} size={50}></ButtonIcon>
+            <ButtonIcon icon={'plus-circle'} size={50} evento={goToNewEvent}></ButtonIcon>
           </View>
       </ImageBackground>
 

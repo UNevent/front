@@ -10,12 +10,16 @@ import { Dimensions } from 'react-native';
 const { width: WIDTH } = Dimensions.get('window')
 
 
-const InputText = ({ placeholder, icon, width }) => {
+const InputText = ({ placeholder, icon, width, passBool }) => {
   return (
     <Input
       containerStyle={styles.input}
       labelStyle={styles.label}
       placeholder={placeholder}
+      placeholderTextColor="#DFDFDF"
+      selectionColor="#DFDFDF"
+      underlineColorAndroid="#DFDFDF"
+      secureTextEntry={passBool}
       leftIcon={
         <Icon
           name={icon}
