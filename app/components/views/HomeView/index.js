@@ -44,10 +44,10 @@ const HomeView = ({}) => {
                   place={item.place}
                   username={item.username}
                   followers={item.followers}
-                  />}
-              keyExtractor={item => item.id}
+                  />}              
+              keyExtractor={item => item.id.toString()}
             />
-          </SafeAreaView>
+          </SafeAreaView >
           <View style={styles.buttonew}>
             <ButtonIcon icon={'plus-circle'} size={50}></ButtonIcon>
           </View>

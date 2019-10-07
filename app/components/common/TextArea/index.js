@@ -9,12 +9,16 @@ import { Dimensions } from 'react-native';
 const { width: WIDTH } = Dimensions.get('window')
 
 
-const TextArea = ({ placeholder, width, lines }) => {
+const TextArea = ({ placeholder, width, lines, passBool }) => {
   return (
     <Input
       containerStyle={styles.input}
       labelStyle={styles.label}
       placeholder={placeholder}
+      placeholderTextColor="#DFDFDF"
+      selectionColor="#DFDFDF"
+      underlineColorAndroid="#DFDFDF"
+      secureTextEntry={passBool}
     />
    
   )

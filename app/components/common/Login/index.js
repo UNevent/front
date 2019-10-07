@@ -4,16 +4,16 @@ import styles  from './styles';
 import InputText from "../InputText";
 import ButtonText from "../ButtonText";
 
-const LoginView = ({}) => {
+const LoginView = ({ ingresar }) => {
 
   	return (
         <View style={styles.container}>
             <Text style={styles.title}>Ingresa!</Text>
             <View style={styles.containerInputs}>
-                <InputText placeholder={"Correo:"} icon={'envelope'}></InputText>
-                <InputText placeholder={"Contraseña:"} icon={'key'}></InputText>
+                <InputText placeholder={"Correo"} icon={'envelope'}></InputText>
+                <InputText passBool={true} placeholder={"Contraseña"} icon={'key'}></InputText>
             </View>
-            <ButtonText name={"Acceder"}></ButtonText>
+            <ButtonText name={"Acceder"} evento={ingresar}></ButtonText>
         </View>
   	);
 };

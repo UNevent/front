@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Text } from 'react-native'
+import {  Text, TouchableOpacity } from 'react-native'
 import { Card, Button } from 'react-native-elements'
 import styles from './styles.js';
 import PropTypes from 'prop-types'
@@ -7,18 +7,19 @@ import  CardHeader  from '../CardHeader';
 
 const CardEvent = ({ poster, event, place, username,followers }) => {
   return (
-    <Card
-      containerStyle={styles.container}
-      image={{uri:poster}}>
-        <CardHeader  
-                  event={event}
-                  place={place}
-                  username={username}
-                  followers={followers}
-                  />
-      
-    </Card>
-   
+    <TouchableOpacity> 
+      <Card
+        containerStyle={styles.container}
+        image={{uri:poster}}>
+          <CardHeader  
+                    event={event}
+                    place={place}
+                    username={username}
+                    followers={followers}
+                    />
+        
+      </Card>
+    </TouchableOpacity>
   )
 }
 
