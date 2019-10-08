@@ -53,7 +53,7 @@ export default createAppContainer(
 										{
 											App: AppNavigator,
 											Enter: NoLoggedNavigator,
-											FirstLogin: FirstLoginNavigator
+											FirstLogin: FirstLoginNavigator,
 										},
 										{
 											initialRouteName: 'Enter',
