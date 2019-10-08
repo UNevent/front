@@ -5,6 +5,7 @@ const LandingScreen = ({ navigation }) => {
   return <AccessView 
   	goToRegister={() => navigation.navigate('RegisterScreen')}
   	goToLogin={() => navigation.navigate('LoginScreen')}
+  	//goInvited={() => navigation.navigate('HomeInvitedScreen')}
   />;
 }
 

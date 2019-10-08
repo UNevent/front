@@ -16,9 +16,8 @@ const TextArea = ({ placeholder, width, lines, passBool }) => {
       labelStyle={styles.label}
       placeholder={placeholder}
       placeholderTextColor="#DFDFDF"
-      selectionColor="#DFDFDF"
-      underlineColorAndroid="#DFDFDF"
       secureTextEntry={passBool}
+      inputStyle={{color: "#DFDFDF"}}
     />
    
   )

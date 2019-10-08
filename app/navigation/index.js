@@ -5,15 +5,9 @@ import RegisterScreen from '../screens/RegisterScreen';
 import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen';
 import NewEventScreen from '../screens/NewEventScreen';
+import EventScreen from '../screens/EventScreen';
 
-const AppNavigator = createStackNavigator(
-	{
-		HomeScreen: {screen: HomeScreen,  navigationOptions: () => ({title: `Eventos`})},
-		NewEventScreen: {screen: NewEventScreen,  navigationOptions: () => ({title: `Nuevo Evento`})},
-	}, 
-	{ 
-		initialRouteName: 'HomeScreen', 
-		defaultNavigationOptions: {
+const defaultOptions = {
 	      	headerStyle: {
 	        	backgroundColor: '#3A3A3A',
 	      	},
@@ -21,10 +15,20 @@ const AppNavigator = createStackNavigator(
 	      	headerTitleStyle: {
 	        	fontWeight: 'bold',
 	      	},
-	    } 
+	    }
+
+const AppNavigator = createStackNavigator(
+	{
+		HomeScreen: {screen: HomeScreen,  navigationOptions: () => ({title: `Eventos`})},
+		NewEventScreen: {screen: NewEventScreen,  navigationOptions: () => ({title: `Nuevo Evento`})},
+		EventScreen: {screen: EventScreen,  navigationOptions: () => ({title: `Detalles`})},
+	}, 
+	{ 
+		initialRouteName: 'HomeScreen', 
+		defaultNavigationOptions: defaultOptions
 	});
 
-const EnterNavigator = createStackNavigator(
+const NoLoggedNavigator = createStackNavigator(
 	{
 		LandingScreen: {screen: LandingScreen,  navigationOptions: () => ({title: `UNEvent`})},
 		RegisterScreen: {screen: RegisterScreen,  navigationOptions: () => ({title: `Registrate`})},
@@ -32,23 +36,24 @@ const EnterNavigator = createStackNavigator(
 	},
 	{ 
 		initialRouteName: 'LandingScreen', 
-		defaultNavigationOptions: {
-	      	headerStyle: {
-	        	backgroundColor: '#3A3A3A',
-	      	},
-	      	headerTintColor: '#FFF',
-	      	headerTitleStyle: {
-	        	fontWeight: 'bold',
-	      	},
-	    } 
+		defaultNavigationOptions: defaultOptions
 	});
 
+const FirstLoginNavigator = createStackNavigator(
+	{
+		LoginScreen: {screen: LoginScreen,  navigationOptions: () => ({title: `Ingresa`})},
+	},
+	{ 
+		initialRouteName: 'LoginScreen', 
+		defaultNavigationOptions: defaultOptions
+	});
 
 export default createAppContainer(
 									createSwitchNavigator(
 										{
 											App: AppNavigator,
-											Enter: EnterNavigator,
+											Enter: NoLoggedNavigator,
+											FirstLogin: FirstLoginNavigator
 										},
 										{
 											initialRouteName: 'Enter',

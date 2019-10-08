@@ -3,6 +3,7 @@ import MapView from "react-native-maps";
 import { View, Text, Image } from "react-native";
 import styles from './styles';
 import mapStyle from './mapStyle';
+import mapConfig from './mapConfig';
 
 import Images from '../../../assets/Images';
 
@@ -25,7 +26,7 @@ const Map = ({reg, marks, onRegionChangeCB, onMapReadyCB, onPressCB}) => {
 	return(
 		<MapView 
 			style={styles.mapView} 
-			initialRegion={reg} 
+			initialRegion={mapConfig} 
 			onRegionChange={onRegionChangeCB}
 			onMapReady={onMapReadyCB}
 			customMapStyle={mapStyle}

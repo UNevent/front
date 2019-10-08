@@ -6,7 +6,7 @@ const { width: WIDTH } = Dimensions.get('window')
 
 export default EStyleSheet.create({
   container:{
-    flex: 1,
+    flex: 2,
     width: WIDTH,
     marginTop: Constants.statusBarHeight,
     backgroundColor: '#FFF'

@@ -15,8 +15,7 @@ const InputText = ({ placeholder, icon, width, passBool }) => {
       labelStyle={styles.label}
       placeholder={placeholder}
       placeholderTextColor="#DFDFDF"
-      selectionColor="#DFDFDF"
-      underlineColorAndroid="#DFDFDF"
+      inputStyle={{color: "#DFDFDF"}}
       secureTextEntry={passBool}
       leftIcon={icon == '' ? null :
         <Icon

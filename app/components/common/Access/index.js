@@ -3,7 +3,7 @@ import {  View, Text } from "react-native";
 import ButtonText from '../ButtonText';
 import styles from './styles';
 
-const AccessView = ({ registrar, ingresar }) => {
+const AccessView = ({ registrar, ingresar, invitar }) => {
 
   	return (
 			<View style={styles.container}>
@@ -13,7 +13,7 @@ const AccessView = ({ registrar, ingresar }) => {
 					<Text style={styles.description}>Registráte para crear eventos</Text>
 					<ButtonText name={"Ya soy UNEventor"} evento={ingresar}></ButtonText>
 					<Text style={styles.description}>Ingresa con tu cuenta</Text>
-					<ButtonText name={"Acceder como invitado"} background={'outline'}></ButtonText>
+					<ButtonText name={"Acceder como invitado"} background={'outline'} evento={invitar}></ButtonText>
 					<Text style={styles.description}>Si sólo quieres ver los eventos</Text>
 				</View>
 			</View>

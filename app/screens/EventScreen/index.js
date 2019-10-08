@@ -1,8 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react-native';
-import { View } from "react-native";
-
-import EventView from'.';
+import EventView from '../../components/views/EventView';
 
 const DATA =
   {
@@ -25,9 +22,8 @@ const DATA =
     }]
   }
 
-const CenteredView = ({ children }) => <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>{children}</View>;
+const EventScreen = ({ navigation }) => {
+  	return <EventView evento={DATA}/>;
+}
 
-
-storiesOf('Views/EventView', module)
-  //.addDecorator(content => <CenteredView>{content()}</CenteredView>)
-  .add('default view', () => <EventView evento={DATA}/>);
+export default EventScreen;
