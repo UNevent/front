@@ -8,4 +8,4 @@ const CenteredView = ({ children }) => <View style={{ flex: 1, justifyContent: '
 
 storiesOf('Commons / ButtonText', module)
   .addDecorator(content => <CenteredView>{content()}</CenteredView>)
-  .add('default view', () => <ButtonText name="Hi" />);
+  .add('default view', () => <ButtonText icon="arrow-right" name="Hi" />);

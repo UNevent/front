@@ -14,4 +14,7 @@ export default EStyleSheet.create({
    // fontSize: 18,
    // textAlign: 'center',
   },
+  icon:{    
+    paddingRight: 15,
+  }
 });
