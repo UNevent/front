@@ -34,7 +34,6 @@ ButtonText.propTypes = {
 
 ButtonText.defaultProps = {
   background: 'solid',
-  icon: ''
 }
 
 export default ButtonText;

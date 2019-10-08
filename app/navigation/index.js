@@ -6,6 +6,7 @@ import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen';
 import NewEventScreen from '../screens/NewEventScreen';
 import EventScreen from '../screens/EventScreen';
+import SuccessRegisterScreen from '../screens/SuccessRegisterScreen';
 
 const defaultOptions = {
 	      	headerStyle: {
@@ -33,6 +34,7 @@ const NoLoggedNavigator = createStackNavigator(
 		LandingScreen: {screen: LandingScreen,  navigationOptions: () => ({title: `UNEvent`})},
 		RegisterScreen: {screen: RegisterScreen,  navigationOptions: () => ({title: `Registrate`})},
 		LoginScreen: {screen: LoginScreen,  navigationOptions: () => ({title: `Ingresa`})},
+		SuccessRegisterScreen: {screen: SuccessRegisterScreen,  navigationOptions: () => ({title: `Registrate`})},
 	},
 	{ 
 		initialRouteName: 'LandingScreen', 

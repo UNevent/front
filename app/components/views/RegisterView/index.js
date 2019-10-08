@@ -6,7 +6,7 @@ import styles  from './styles';
 import Register from "../../common/Register";
 import Images from '../../../assets/Images';
 
-const RegisterView = ({}) => {
+const RegisterView = ({ goSuccess }) => {
   	return (
 	    <ImageBackground source={Images.backmap} style={styles.backmap}>
 	    	<KeyboardAvoidingView
@@ -16,7 +16,7 @@ const RegisterView = ({}) => {
 		    		<View style={styles.container}>
 		          	<Image source={Images.unLogo} style={styles.logo}></Image>
 			    		<Text style={styles.title}>UNEvent</Text>
-						<Register></Register>
+						<Register registrar={goSuccess}></Register>
 			    	</View>
 		    	</ScrollView>
 		    </KeyboardAvoidingView>
