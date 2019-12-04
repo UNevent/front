@@ -1,4 +1,5 @@
 import { createStackNavigator, createAppContainer, createSwitchNavigator  } from 'react-navigation';
+import { getInitialState } from '../store/reducers/implementation';
 
 import LandingScreen from '../screens/LandingScreen';
 import RegisterScreen from '../screens/RegisterScreen';
@@ -10,7 +11,7 @@ import SuccessRegisterScreen from '../screens/SuccessRegisterScreen';
 
 const defaultOptions = {
 	      	headerStyle: {
-	        	backgroundColor: '#3A3A3A',
+	        	backgroundColor: '#242430',
 	      	},
 	      	headerTintColor: '#FFF',
 	      	headerTitleStyle: {
@@ -58,7 +59,7 @@ export default createAppContainer(
 											FirstLogin: FirstLoginNavigator,
 										},
 										{
-											initialRouteName: 'Enter',
+											initialRouteName: getInitialState().session.user == "" && getInitialState().session.pass ? 'Enter':'App',
 										}
 									)
 								);

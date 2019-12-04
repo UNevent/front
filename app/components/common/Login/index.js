@@ -19,6 +19,9 @@ const LoginView = ({ ingresar }) => {
             ingresar();
             AsyncStorage.setItem('usr', correo.toString());
             AsyncStorage.setItem('pw', contrasena.toString());
+
+            autenticar();
+            console.log(auth_selector);
         }else{
             Alert.alert(
               'Error al autenticar',
@@ -44,9 +47,8 @@ const LoginView = ({ ingresar }) => {
                 <InputText passBool={true} placeholder={"Contraseña"} icon={'vpn-key'} value={contrasena} onChangeText={setContrasena}></InputText>
             </View>
             <ButtonText name={"Acceder"} evento={auth}></ButtonText>
-
-            <ButtonText name={"Mostrar Redux User"} evento={()=> {autenticar();console.log(auth_selector)}}></ButtonText>
-        </View>
+            <ButtonText name={"Mostrar Sesion"} evento={() => console.log(auth_selector)}></ButtonText>
+         </View>
   	);
 };
 

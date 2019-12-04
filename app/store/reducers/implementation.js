@@ -10,10 +10,16 @@ async function getPass(){
 }
 
 export function getInitialState(){
-	return {
+	/*return {
 		session: {
 			user: getUser(),
 			pass: getPass()
+		},
+	}*/
+	return {
+		session: {
+			user: 'dafrodriguezro@unal.edu.co',
+			pass: 'abc123'
 		},
 	}
 }
