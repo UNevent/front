@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, AsyncStorage } from "react-native";
+import { View, Text, AsyncStorage, Alert } from "react-native";
 import styles  from './styles';
 import InputText from "../InputText";
 import ButtonText from "../ButtonText";
@@ -16,9 +16,18 @@ const LoginView = ({ ingresar }) => {
     const auth = () => {
 
         if(correo != '' && contrasena != ''){
-            //ingresar();
+            ingresar();
             AsyncStorage.setItem('usr', correo.toString());
             AsyncStorage.setItem('pw', contrasena.toString());
+        }else{
+            Alert.alert(
+              'Error al autenticar',
+              'ingresa tu usuario y contraseña',
+              [
+                {text: 'OK', onPress: () => console.log('ok')},
+              ],
+              {cancelable: false},
+            );
         }
     }
 
@@ -36,7 +45,7 @@ const LoginView = ({ ingresar }) => {
             </View>
             <ButtonText name={"Acceder"} evento={auth}></ButtonText>
 
-            <ButtonText name={"Acceder"} evento={()=> {autenticar();console.log(auth_selector)}}></ButtonText>
+            <ButtonText name={"Mostrar Redux User"} evento={()=> {autenticar();console.log(auth_selector)}}></ButtonText>
         </View>
   	);
 };
