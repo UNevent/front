@@ -7,19 +7,7 @@ import Access from "../../common/Access";
 import ButtonText from "../../common/ButtonText";
 import Images from '../../../assets/Images';
 
-
-import { useSelector, useDispatch } from 'react-redux';
-import { getNumber } from '../../../store/selectors';
-import { incrementarNumero, decrementarNumero } from '../../../store/actions';
-
-
 const AccessView = ({ goToRegister, goToLogin, goInvited }) => {
-	const numero = useSelector(getNumber);
-	const dispatch = useDispatch();
-
-	const aumentar = () => dispatch(incrementarNumero());
-	const restar = () => dispatch(decrementarNumero());
-
   	return (
 	    <ImageBackground source={Images.backmap} style={styles.backmap}>
 	    	<View style={styles.container}>

@@ -1,14 +1,12 @@
-import { INCREASE_NUMBER, DECREASE_NUMBER } from '../actions/types';
+import { AUTH_USER } from '../actions/types';
+import { getInitialState, setAuthData } from './implementation'
 
-
-const initialState = 0;
+const initialState = getInitialState();
 
 export default function increaseNumberReducer (estado = initialState, accion){
 	switch(accion.type){
-		case INCREASE_NUMBER:
-			return estado + 1;
-		case DECREASE_NUMBER:
-			return estado - 1;
+		case AUTH_USER:
+			return setAuthData(estado, accion);
 		default:
 			return estado;
 	}

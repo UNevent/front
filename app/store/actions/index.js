@@ -1,10 +1,7 @@
-import { INCREASE_NUMBER, DECREASE_NUMBER } from './types';
+import { AUTH_USER } from './types';
 
-
-export const incrementarNumero = () => ({
-	type: INCREASE_NUMBER,
-});
-
-export const decrementarNumero = () => ({
-	type: DECREASE_NUMBER,
+export const authenticate = (user, pass) => ({
+	type: AUTH_USER,
+	user,
+	pass,
 });
