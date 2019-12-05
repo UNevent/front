@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeView from '../../components/views/HomeView';
+import NoEventsView from '../../components/views/NoEventsView';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getEventsData } from '../../store/selectors';
@@ -15,6 +16,10 @@ const HomeScreen = ({ navigation }) => {
         goToEvent={() => navigation.navigate('EventScreen')}
       />;
     }
+
+    return <NoEventsView
+      goToNewEvent={() => navigation.navigate('NewEventScreen')}
+    />
   	
 }
 
