@@ -5,7 +5,7 @@ import InputText from "../InputText";
 import ButtonText from "../ButtonText";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDataAuth } from '../../../store/selectors';
+import { getDataAuth, isAuth } from '../../../store/selectors';
 import { authenticate } from '../../../store/actions';
 
 const LoginView = ({ ingresar }) => {
@@ -14,14 +14,12 @@ const LoginView = ({ ingresar }) => {
     const [contrasena, setContrasena] = useState('');
 
     const auth = () => {
-
         if(correo != '' && contrasena != ''){
             ingresar();
             AsyncStorage.setItem('usr', correo.toString());
             AsyncStorage.setItem('pw', contrasena.toString());
 
             autenticar();
-            console.log(auth_selector);
         }else{
             Alert.alert(
               'Error al autenticar',

@@ -4,7 +4,7 @@ import styles from './styles.js';
 import PropTypes from 'prop-types'
 import  CardHeader  from '../CardHeader';
 
-const CardEvent = ({ poster, event, place, username,followers, follow }) => {
+const CardEvent = ({ poster, event, place, username,followers, follow, day, month }) => {
   return (
       <Card
         containerStyle={styles.container}
@@ -15,6 +15,8 @@ const CardEvent = ({ poster, event, place, username,followers, follow }) => {
                     username={username}
                     followers={followers}
                     follow={follow}
+                    day={day}
+                    month={month}
                     />
         
       </Card>

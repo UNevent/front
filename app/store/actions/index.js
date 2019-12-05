@@ -1,4 +1,4 @@
-import { AUTH_USER } from './types';
+import { AUTH_USER, SAVE_SESSION } from './types';
 
 export const authenticate = (user, pass) => ({
 	type: AUTH_USER,

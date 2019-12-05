@@ -13,12 +13,15 @@ const HomeView = ({ goToNewEvent, events, goToEvent }) => {
               data={events}
               renderItem={({ item }) => 
               <TouchableOpacity activeOpacity={0.2} onPress={goToEvent}> 
-                <CardEvent  poster={item.poster}
+                <CardEvent  
+                    poster={item.poster}
                     event={item.event}
                     place={item.place}
                     username={item.username}
                     followers={item.followers}
                     follow={item.follow}
+                    day={item.day}
+                    month={item.month}
                     />
               </TouchableOpacity>}              
               keyExtractor={item => item.id.toString()}
