@@ -15,6 +15,6 @@ export function isAuth(state){
 	return !!state.session.user && !!state.session.pass;
 }
 
-export function detEventsData(state){
+export function getEventsData(state){
 	return state.eventsData;
 }

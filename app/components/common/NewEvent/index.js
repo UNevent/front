@@ -13,13 +13,11 @@ const NewEventView = ({}) => {
           
           <View>
             <InputText placeholder={"Lugar"} icon={'map'}></InputText>
-
             <InputText placeholder={"Salón"}  ></InputText>
           </View>
+
           <TextArea placeholder={"Descripción"}></TextArea>
         <ButtonText name={"Seleccionar imagen"} background={'outline'}></ButtonText>
-        
-      
       </View>
   	);
 };

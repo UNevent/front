@@ -1,10 +1,10 @@
 {
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 12604,
+  "expoServerNgrokUrl": "https://u2-m62.dafrodriguezro.unevent-frontend-mobile.exp.direct",
+  "packagerNgrokUrl": "https://packager.u2-m62.dafrodriguezro.unevent-frontend-mobile.exp.direct",
+  "ngrokPid": 7552,
   "devToolsPort": 19002,
   "webpackServerPort": null
 }

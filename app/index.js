@@ -6,18 +6,21 @@ import { AsyncStorage } from "react-native";
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import store from './store';
 import { AppLoading } from 'expo';
-import { authenticate } from './store/actions';
+import { authenticate, saveEvents } from './store/actions';
 
 EStyleSheet.build();
 
+// carga el usuario
 _userAsync = async () => {
 	return await AsyncStorage.getItem('usr');
 }
 
+// carga la contrasena
 _passAsync = async () => {
 	return await AsyncStorage.getItem('pw');
 }
 
+// TODO aca se debe cargar los eventos
 const DATA = [
   {
     id:1,
@@ -52,10 +55,12 @@ const DATA = [
   }
 ]
 
-_getEvents = async () => {
-	return await DATA;
+// promesa que carga los eventos
+_getEvents = async (loadEvents) => {
+    await loadEvents(DATA);
 }
 
+// une los datos de usuario
 async function _getSession(auth){
 	const session = {
 		user: await _userAsync(),
@@ -67,6 +72,13 @@ async function _getSession(auth){
 	}
 }
 
+// esta funcion carga todo
+async function loadAllData(events, session){
+  await _getEvents(events);
+  await _getSession(session);
+}
+
+// muestra el splash screen o la aplicacion dependiendo si ya cargo todo
 function AppComponent(){
 	const dispatch = useDispatch();
 
@@ -78,17 +90,19 @@ function AppComponent(){
 		);
 	}
 
-	const auth = (correo, contrasena) => dispatch(authenticate(correo, contrasena));
+  const auth = (correo, contrasena) => dispatch(authenticate(correo, contrasena));
+  const loadEvents = (data) => dispatch(saveEvents(data));
 
 	return(
 		<AppLoading
-	      startAsync={() =>() (_getSession(auth), _getEvents())}
+	      startAsync={() => loadAllData(loadEvents, auth)}
 	      onFinish={() => setSessionLoaded(true)}
 	      onError={console.warn}
 	    />
 	);
 }
 
+// navigator
 export default registerRootComponent(() => {
 	return(
 		<Provider store={store}>

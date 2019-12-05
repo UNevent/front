@@ -9,7 +9,6 @@ export function getInitialState(){
 	}
 }
 
-
 export function setAuthData(estado, accion){
 	const {user, pass} = accion;
 

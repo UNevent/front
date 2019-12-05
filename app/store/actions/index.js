@@ -1,4 +1,4 @@
-import { AUTH_USER, LOAD_DATA } from './types';
+import { AUTH_USER, SAVE_EVENTS_DATA } from './types';
 
 export const authenticate = (user, pass) => ({
 	type: AUTH_USER,
@@ -6,7 +6,7 @@ export const authenticate = (user, pass) => ({
 	pass,
 });
 
-export const loadEvents = (eventsData) => ({
-	type: LOAD_DATA,
+export const saveEvents = (eventsData) => ({
+	type: SAVE_EVENTS_DATA,
 	eventsData,
-}):
+});
