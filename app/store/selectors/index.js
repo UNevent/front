@@ -11,3 +11,7 @@ export function getDataAuth(state){
 export function isAuth(state){
 	return !!state.session.user && !!state.session.pass;
 }
+
+export function detEventsData(state){
+	return state.eventsData;
+}

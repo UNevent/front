@@ -1,5 +1,4 @@
 import { AsyncStorage } from 'react-native';
-import { useState } from "react";
 
 export function getInitialState(){
 	return {
@@ -21,4 +20,13 @@ export function setAuthData(estado, accion){
 			pass
 		}
 	};
+}
+
+export function setEventsData(estado, accion){
+	const {eventsData} = accion;
+
+	return {
+		...estado,
+		eventsData,
+	}
 }

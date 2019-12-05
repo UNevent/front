@@ -1,8 +1,7 @@
 {
+  "urlRandomness": "u2-m62",
   "hostType": "lan",
   "lanType": "ip",
   "dev": true,
-  "minify": false,
-  "urlRandomness": "8z-rnf",
-  "https": false
+  "minify": false
 }
