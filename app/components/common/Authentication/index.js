@@ -17,7 +17,7 @@ export async function login(email, password){
         (response) => response.json()
     ).then(
         (responseJson) => {
-        return responseJson;
+            return responseJson;
         }
     ).catch(
         (error) => {

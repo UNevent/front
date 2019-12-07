@@ -19,7 +19,6 @@ const LoginView = ({ ingresar }) => {
         if(correo != '' && contrasena != ''){
             login(correo, contrasena).then(
               (response) => {
-                console.log(response);
                 if(!response.success){
                   if(response.data){
                     ingresar();

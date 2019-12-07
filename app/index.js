@@ -42,7 +42,7 @@ async function _getAllEvents(){
               id: i.id,
               poster: i.attributes.poster,
               event: i.attributes.title,
-              place: i.attributes.details,
+              place: i.attributes["place-detail"],
               username: i.relationships.user.data.nickname,
               followers: 123,
               follow: true,
@@ -87,8 +87,9 @@ async function _getSession(auth){
 
 // esta funcion carga todo
 async function loadAllData(events, session){
-  await _getAllEvents();
-  await _getEvents(events);
+  await _getAllEvents().then(
+    async (response) => {await _getEvents(events)}
+  );
   await _getSession(session);
 }
 

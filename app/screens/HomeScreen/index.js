@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation }) => {
       return <HomeView
         goToNewEvent={() => navigation.navigate('NewEventScreen')}
         events={events_selector}
-        goToEvent={() => navigation.navigate('EventScreen')}
+        goToEvent={navigation}
       />;
     }
 
