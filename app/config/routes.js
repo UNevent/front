@@ -1,5 +1,5 @@
-export const url = '127.0.0.1';
-export const port = '3000';
+export const url = '192.168.0.23';
+export const port = '8080';
 
 export const tags = '/tags';
 export const places = '/places';
@@ -10,3 +10,5 @@ export const auth_register = '/auth';
 export const auth_login = '/auth/sign_in';
 export const auth_out = '/auth/sign_out';
 export const auth_validate_session = '/auth/validate_token';
+
+export const endPoint = `http://${url}:${port}`;

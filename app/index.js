@@ -8,6 +8,9 @@ import store from './store';
 import { AppLoading } from 'expo';
 import { authenticate, saveEvents } from './store/actions';
 
+import { endPoint, events } from './config/routes';
+import { login } from './components/common/Authentication';
+
 EStyleSheet.build();
 
 // carga el usuario
@@ -20,44 +23,46 @@ _passAsync = async () => {
 	return await AsyncStorage.getItem('pw');
 }
 
-// TODO aca se debe cargar los eventos
-const DATA = [
-  {
-    id:1,
-    poster:'https://www.las2orillas.co/wp-content/uploads/2017/04/UNal-1-780x514.jpg',
-    event:"Evento",
-    place:"lugar",
-    username:"cuenta que lo creo",
-    followers:123,
-    follow: true,
-    day: '28',
-    month: 'Jan'
-  },{
-    id:2,
-    poster:'https://www.eltiempo.com/files/despliegue_video/uploads/2017/09/21/59c43014a9ae8.jpeg',
-    event:"Evento2",
-    place:"lugar",
-    username:"cuenta que lo creo",
-    followers:123,
-    follow: false,
-    day: '29',
-    month: 'Mar'
-  },{
-    id:3,
-    poster:'http://2.bp.blogspot.com/-cePaplO8t3c/TjDXCPv63mI/AAAAAAAAA2Q/Sby0BIeLkss/s1600/ciencia_y_tecnologia.jpg',
-    event:"Evento3",
-    place:"lugar",
-    username:"cuenta que lo creo",
-    followers:123,
-    follow: true,
-    day: '30',
-    month: 'Dec'
-  }
-]
+const DATA = [];
+const monthNames = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.",
+  "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
+
+async function _getAllEvents(){
+  let complete_url = `${endPoint}${events}`;
+
+  return fetch(complete_url).then(
+    (response) => response.json()
+  ).then(
+    (responseJson) => {
+      responseJson.data.forEach(
+        (i) => {
+          let date = new Date(i.attributes.date.toString().split("T")[0]);
+          DATA.push(
+            {
+              id: i.id,
+              poster: i.attributes.poster,
+              event: i.attributes.title,
+              place: i.attributes.details,
+              username: i.relationships.user.data.nickname,
+              followers: 123,
+              follow: true,
+              day: date.getDay(),
+              month: monthNames[date.getUTCMonth()]
+            }
+          );
+        }
+      );
+    }
+  ).catch(
+    (error) => {
+      console.error(error);
+    }
+  );
+}
 
 // promesa que carga los eventos
 _getEvents = async (loadEvents) => {
-    await loadEvents(DATA);
+  await loadEvents(DATA);
 }
 
 // une los datos de usuario
@@ -68,12 +73,21 @@ async function _getSession(auth){
 	}
 	
 	if(session.user && session.pass){
-		auth(session.user, session.pass);
+    await login(session.user, session.pass).then(
+      (response) => {
+        if(!response.success){
+          if(response.data){
+            auth(session.user, session.pass);
+          }
+        }
+      }
+    );
 	}
 }
 
 // esta funcion carga todo
 async function loadAllData(events, session){
+  await _getAllEvents();
   await _getEvents(events);
   await _getSession(session);
 }

@@ -5,8 +5,10 @@ import InputText from "../InputText";
 import ButtonText from "../ButtonText";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDataAuth, isAuth } from '../../../store/selectors';
+import { getDataAuth } from '../../../store/selectors';
 import { authenticate } from '../../../store/actions';
+
+import { login } from '../Authentication';
 
 const LoginView = ({ ingresar }) => {
 
@@ -15,11 +17,30 @@ const LoginView = ({ ingresar }) => {
 
     const auth = () => {
         if(correo != '' && contrasena != ''){
-            ingresar();
-            AsyncStorage.setItem('usr', correo.toString());
-            AsyncStorage.setItem('pw', contrasena.toString());
+            login(correo, contrasena).then(
+              (response) => {
+                console.log(response);
+                if(!response.success){
+                  if(response.data){
+                    ingresar();
+                    AsyncStorage.setItem('usr', correo.toString());
+                    AsyncStorage.setItem('pw', contrasena.toString());
 
-            autenticar();
+                    autenticar();
+                  }else{
+                    Alert.alert(
+                      'Error al autenticar',
+                      'usuario y/o contraseña incorrectos',
+                      [
+                        {text: 'OK', onPress: () => console.log('ok')},
+                      ],
+                      {cancelable: false},
+                    );
+                  }
+                }
+              }
+            );
+            
         }else{
             Alert.alert(
               'Error al autenticar',
