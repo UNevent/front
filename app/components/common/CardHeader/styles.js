@@ -25,7 +25,7 @@ export default EStyleSheet.create({
   info:{
     flex: 5,
     marginLeft: 1,
-    padding: '0.3rem'
+    padding: '0.3rem',
   },
   follow:{
     flex: 1,
@@ -36,14 +36,12 @@ export default EStyleSheet.create({
   },
   event:{
     fontSize: 18,
-    fontWeight:'bold'
+    fontWeight:'bold',
   },
   place:{
-    fontSize: 16
-
+    fontSize: 16,
   },
   username:{
-    fontSize: 12
-
+    fontSize: 12,
   }
 });

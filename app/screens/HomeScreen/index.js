@@ -9,7 +9,9 @@ const DATA = [
     place:"lugar",
     username:"cuenta que lo creo",
     followers:123,
-    follow: true
+    follow: true,
+    day: '28',
+    month: 'Jan'
   },{
     id:2,
     poster:'https://www.eltiempo.com/files/despliegue_video/uploads/2017/09/21/59c43014a9ae8.jpeg',
@@ -17,7 +19,9 @@ const DATA = [
     place:"lugar",
     username:"cuenta que lo creo",
     followers:123,
-    follow: false
+    follow: false,
+    day: '29',
+    month: 'Mar'
   },{
     id:3,
     poster:'http://2.bp.blogspot.com/-cePaplO8t3c/TjDXCPv63mI/AAAAAAAAA2Q/Sby0BIeLkss/s1600/ciencia_y_tecnologia.jpg',
@@ -25,7 +29,9 @@ const DATA = [
     place:"lugar",
     username:"cuenta que lo creo",
     followers:123,
-    follow: true
+    follow: true,
+    day: '30',
+    month: 'Dec'
   }
 ]
 

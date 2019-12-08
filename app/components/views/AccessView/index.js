@@ -4,6 +4,7 @@ import { View, Text, ImageBackground, Image, StyleSheet } from "react-native";
 //import styles from '../../../assets/styles/general/styles';
 import styles  from './styles';
 import Access from "../../common/Access";
+import ButtonText from "../../common/ButtonText";
 import Images from '../../../assets/Images';
 
 const AccessView = ({ goToRegister, goToLogin, goInvited }) => {

@@ -22,7 +22,10 @@
     "react-native-maps": "0.24.0",
     "react-native-reanimated": "^1.1.0",
     "react-native-web": "^0.11.4",
-    "react-navigation": "~3.0.0"
+    "react-navigation": "~3.0.0",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "~5.1.11",

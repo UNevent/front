@@ -6,10 +6,8 @@ import ButtonText from "../ButtonText/index";
 import TextArea from "../TextArea/index";
 
 const NewEventView = ({}) => {
-
   	return (
       <View style={styles.container}>
-        
           <InputText placeholder={"Nombre evento:"} ></InputText>
           <InputText placeholder={"Fecha"} icon={'event'} style={styles.inputDate}></InputText>
           

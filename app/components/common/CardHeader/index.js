@@ -1,16 +1,16 @@
 import React from 'react';
-import {  Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import styles from './styles.js';
 import PropTypes from 'prop-types'
 import { Dimensions } from 'react-native';
 import ButtonFav from '../ButtonFav/index.js';
 
-const CardHeader = ({  event, place, username,followers, follow }) => {
+const CardHeader = ({  event, place, username,followers, follow, day, month }) => {
   return (
     <View style={styles.container}>
       <View style={styles.dateContainer}>
-        <Text style={styles.date}>28</Text>
-        <Text style={styles.date}>JAN</Text>
+        <Text style={styles.date}>{day}</Text>
+        <Text style={styles.date}>{month}</Text>
       </View>
       <View style={styles.info}>
         <Text style={styles.event}>{event}</Text>

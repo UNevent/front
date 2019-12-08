@@ -9,9 +9,10 @@ import { Dimensions } from 'react-native';
 const { width: WIDTH } = Dimensions.get('window')
 
 
-const TextArea = ({ placeholder, width, lines, passBool }) => {
+const TextArea = ({ placeholder, width, lines, passBool, ...props }) => {
   return (
     <Input
+      {...props}
       containerStyle={styles.input}
       labelStyle={styles.label}
       placeholder={placeholder}

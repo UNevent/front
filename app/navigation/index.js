@@ -1,4 +1,5 @@
-import { createStackNavigator, createAppContainer, createSwitchNavigator  } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createSwitchNavigator, DrawerItems, createDrawerNavigator } from 'react-navigation';
+import { getInitialState } from '../store/reducers/implementation';
 
 import LandingScreen from '../screens/LandingScreen';
 import RegisterScreen from '../screens/RegisterScreen';
@@ -10,7 +11,7 @@ import SuccessRegisterScreen from '../screens/SuccessRegisterScreen';
 
 const defaultOptions = {
 	      	headerStyle: {
-	        	backgroundColor: '#3A3A3A',
+	        	backgroundColor: '#242430',
 	      	},
 	      	headerTintColor: '#FFF',
 	      	headerTitleStyle: {
@@ -18,14 +19,32 @@ const defaultOptions = {
 	      	},
 	    }
 
-const AppNavigator = createStackNavigator(
+const NewEventNavigator = createStackNavigator(
+	{
+		NewEventScreen: {screen: NewEventScreen,  navigationOptions: () => ({title: `Nuevo Evento`})},
+	},
+	{
+		initialRouteName: 'NewEventScreen', 
+		defaultNavigationOptions: defaultOptions
+	});
+
+const EventNavigator = createStackNavigator(
 	{
 		HomeScreen: {screen: HomeScreen,  navigationOptions: () => ({title: `Eventos`})},
-		NewEventScreen: {screen: NewEventScreen,  navigationOptions: () => ({title: `Nuevo Evento`})},
 		EventScreen: {screen: EventScreen,  navigationOptions: () => ({title: `Detalles`})},
+	},
+	{
+		initialRouteName: 'HomeScreen', 
+		defaultNavigationOptions: defaultOptions
+	});
+
+const AppNavigator = createDrawerNavigator(
+	{	
+		DrawerNavigation: {screen: EventNavigator, navigationOptions: () => ({drawerLabel: `Lista de Eventos`})},
+		NewEventNavigation: {screen: NewEventNavigator, navigationOptions: () => ({drawerLabel: `Nuevo Evento`})}
 	}, 
 	{ 
-		initialRouteName: 'HomeScreen', 
+		initialRouteName: 'DrawerNavigation', 
 		defaultNavigationOptions: defaultOptions
 	});
 
@@ -58,6 +77,7 @@ export default createAppContainer(
 											FirstLogin: FirstLoginNavigator,
 										},
 										{
+											//initialRouteName: getInitialState().session.user == "" && getInitialState().session.pass ? 'Enter':'App',
 											initialRouteName: 'Enter',
 										}
 									)

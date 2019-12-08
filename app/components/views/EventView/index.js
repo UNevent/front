@@ -17,6 +17,8 @@ const EventView = ({evento}) => {
               username={evento.username}
               followers={evento.followers}
               follow={evento.follow}
+              day={evento.day}
+              month={evento.month}
               />
             <Text style={styles.info} >{evento.info}</Text>
           </ScrollView>
