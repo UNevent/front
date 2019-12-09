@@ -5,15 +5,14 @@ import Images from '../../../assets/Images';
 import NewEvent from '../../common/NewEvent';
 import ButtonText from '../../common/ButtonText';
 
-const NewEventView = ({}) => {
+const NewEventView = ({goEvents}) => {
   	return (
   		<ImageBackground source={Images.backmap} style={styles.backmap}>
 	  		<KeyboardAvoidingView
 		      behavior="padding"
 		    >
 		    	<ScrollView>
-			        <NewEvent></NewEvent>
-			        <ButtonText name={"Publicar"}></ButtonText>
+			        <NewEvent create={goEvents}></NewEvent>
 		    	</ScrollView>
 		    </KeyboardAvoidingView>
 	    </ImageBackground>
