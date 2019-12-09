@@ -1,18 +1,54 @@
-import { endPoint, auth_register, auth_login } from '../../../config/routes';
+import { endPoint, auth_register, auth_validate_session, auth_login } from '../../../config/routes';
+import { AsyncStorage } from "react-native";
+
+async function saveToken(token, client){
+    if(token && client){
+        AsyncStorage.setItem('token', token);
+        AsyncStorage.setItem('client', client);
+    }
+}
 
 export async function login(email, password){
-    let complete_url = `${endPoint}${auth_login}`;
+    const complete_url = `${endPoint}${auth_login}`;
 
     return fetch(complete_url, {
         method: 'POST',
         headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-        email: email,
-        password: password,
+            email: email,
+            password: password,
         }),
+    }).then(
+        (response) => (
+            saveToken(response.headers.map["access-token"], response.headers.map["client"]),
+            response.json()
+        )
+    ).then(
+        (responseJson) => {
+            return responseJson;
+        }
+    ).catch(
+        (error) => {
+            console.error(error);
+        }
+    );
+}
+
+export async function validateSession(token, client, uid){
+    const complete_url = `${endPoint}${auth_validate_session}`;
+
+    return fetch(complete_url, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+                'Content-Type': 'application/json',
+            "access-token": token,
+            uid: uid,
+            client: client,
+        }
     }).then(
         (response) => response.json()
     ).then(
@@ -21,7 +57,7 @@ export async function login(email, password){
         }
     ).catch(
         (error) => {
-        console.error(error);
+            console.error(error);
         }
     );
 }

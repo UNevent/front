@@ -9,7 +9,7 @@ import { AppLoading } from 'expo';
 import { authenticate, saveEvents } from './store/actions';
 
 import { endPoint, events } from './config/routes';
-import { login } from './components/common/Authentication';
+import { validateSession } from './components/common/Authentication';
 
 EStyleSheet.build();
 
@@ -21,6 +21,14 @@ _userAsync = async () => {
 // carga la contrasena
 _passAsync = async () => {
 	return await AsyncStorage.getItem('pw');
+}
+
+_tokenAsync = async () => {
+  return await AsyncStorage.getItem('token');
+}
+
+_clientAsync = async () => {
+  return await AsyncStorage.getItem('client');
 }
 
 const DATA = [];
@@ -69,15 +77,17 @@ _getEvents = async (loadEvents) => {
 async function _getSession(auth){
 	const session = {
 		user: await _userAsync(),
-		pass: await _passAsync()
+    pass: await _passAsync(),
+    token: await _tokenAsync(),
+    client: await _clientAsync()
 	}
 	
-	if(session.user && session.pass){
-    await login(session.user, session.pass).then(
+	if(session.user && session.pass && session.token && session.client){
+    await validateSession(session.token, session.client, session.user).then(
       (response) => {
-        if(!response.success){
+        if(response.success){
           if(response.data){
-            auth(session.user, session.pass);
+            auth(session.user, session.pass,  session.client, session.token);
           }
         }
       }
@@ -105,7 +115,7 @@ function AppComponent(){
 		);
 	}
 
-  const auth = (correo, contrasena) => dispatch(authenticate(correo, contrasena));
+  const auth = (correo, contrasena, client, token) => dispatch(authenticate(correo, contrasena, client, token));
   const loadEvents = (data) => dispatch(saveEvents(data));
 
 	return(

@@ -10,6 +10,14 @@ import { authenticate } from '../../../store/actions';
 
 import { login } from '../Authentication';
 
+_tokenAsync = async () => {
+  return await AsyncStorage.getItem('token');
+}
+
+_clientAsync = async () => {
+  return await AsyncStorage.getItem('client');
+}
+
 const LoginView = ({ ingresar }) => {
 
     const [correo, setCorreo] = useState('');
@@ -22,10 +30,18 @@ const LoginView = ({ ingresar }) => {
                 if(!response.success){
                   if(response.data){
                     ingresar();
-                    AsyncStorage.setItem('usr', correo.toString());
+                    AsyncStorage.setItem('usr', correo.toString().toLowerCase());
                     AsyncStorage.setItem('pw', contrasena.toString());
 
-                    autenticar();
+                    _tokenAsync().then(
+                      (respToken) => (
+                        _clientAsync().then(
+                          (respClient) => {
+                            autenticar(respToken, respClient);
+                          }
+                        ) 
+                      )
+                    );
                   }else{
                     Alert.alert(
                       'Error al autenticar',
@@ -55,7 +71,7 @@ const LoginView = ({ ingresar }) => {
     const auth_selector = useSelector(getDataAuth);
     const dispatch = useDispatch();
 
-    const autenticar = () => dispatch(authenticate(correo, contrasena));
+    const autenticar = (token, client) => dispatch(authenticate(correo.toLowerCase(), contrasena, client, token));
 
   	return (
         <View style={styles.container}>

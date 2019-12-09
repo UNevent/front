@@ -5,6 +5,7 @@ import { isAuth } from '../../store/selectors';
 
 const LandingScreen = ({ navigation }) => {
 	const isLoged_selector = useSelector(isAuth);
+	
 	if(isLoged_selector){
 		navigation.navigate('App');
 	}

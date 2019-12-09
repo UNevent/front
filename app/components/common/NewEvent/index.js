@@ -6,6 +6,9 @@ import ButtonText from "../ButtonText/index";
 import TextArea from "../TextArea/index";
 import Autocomplete from 'react-native-autocomplete-input';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { getDataAuth } from '../../../store/selectors';
+
 const auto = [
   {
     id: 1,
@@ -38,6 +41,8 @@ const NewEventView = ({}) => {
     const [query, setQuery] = useState('');
     const datos = findOption(query);
     const comp = (a, b) => a.toLowerCase().trim() === b.toLowerCase().trim();
+
+    const auth_selector = useSelector(getDataAuth);
 
   	return (
       <View style={styles.container}>
