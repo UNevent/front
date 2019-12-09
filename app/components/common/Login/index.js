@@ -5,8 +5,18 @@ import InputText from "../InputText";
 import ButtonText from "../ButtonText";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDataAuth, isAuth } from '../../../store/selectors';
+import { getDataAuth } from '../../../store/selectors';
 import { authenticate } from '../../../store/actions';
+
+import { login } from '../Authentication';
+
+_tokenAsync = async () => {
+  return await AsyncStorage.getItem('token');
+}
+
+_clientAsync = async () => {
+  return await AsyncStorage.getItem('client');
+}
 
 const LoginView = ({ ingresar }) => {
 
@@ -15,11 +25,37 @@ const LoginView = ({ ingresar }) => {
 
     const auth = () => {
         if(correo != '' && contrasena != ''){
-            ingresar();
-            AsyncStorage.setItem('usr', correo.toString());
-            AsyncStorage.setItem('pw', contrasena.toString());
+            login(correo, contrasena).then(
+              (response) => {
+                if(!response.success){
+                  if(response.data){
+                    ingresar();
+                    AsyncStorage.setItem('usr', correo.toString().toLowerCase());
+                    AsyncStorage.setItem('pw', contrasena.toString());
 
-            autenticar();
+                    _tokenAsync().then(
+                      (respToken) => (
+                        _clientAsync().then(
+                          (respClient) => {
+                            autenticar(respToken, respClient);
+                          }
+                        ) 
+                      )
+                    );
+                  }else{
+                    Alert.alert(
+                      'Error al autenticar',
+                      'usuario y/o contraseña incorrectos',
+                      [
+                        {text: 'OK', onPress: () => console.log('ok')},
+                      ],
+                      {cancelable: false},
+                    );
+                  }
+                }
+              }
+            );
+            
         }else{
             Alert.alert(
               'Error al autenticar',
@@ -35,7 +71,7 @@ const LoginView = ({ ingresar }) => {
     const auth_selector = useSelector(getDataAuth);
     const dispatch = useDispatch();
 
-    const autenticar = () => dispatch(authenticate(correo, contrasena));
+    const autenticar = (token, client) => dispatch(authenticate(correo.toLowerCase(), contrasena, client, token));
 
   	return (
         <View style={styles.container}>
