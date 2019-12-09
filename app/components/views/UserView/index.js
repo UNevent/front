@@ -9,19 +9,6 @@ import AvatarIcon from "../../common/AvatarIcon";
 const UserView = ({goToHome}) => {
   	return (	    
 			<ImageBackground source={Images.backmap} style={styles.backmap}>
-				
-					<Header style={styles.header} 
-						backgroundColor="black"	
-						leftComponent={ 
-							<ButtonIcon
-								icon={'arrow-left'}
-								color={'#517fa4'}
-								size={25}
-								evento={goToHome}
-							/>	 
-						}
-						centerComponent={{ text: 'Perfil', style: { color: '#fff', fontWeight: 'bold', fontSize: 20 } }}
-					/>
 					<View style={styles.user}>
 							<AvatarIcon style={ styles.avatar}
 								title={"db"}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import EventView from '../../components/views/EventView';
-import { ActivityIndicator } from 'react-native';
+import LoadingView from '../../components/views/LoadingView';
 
 import { endPoint, events, places } from '../../config/routes';
 
@@ -47,7 +47,7 @@ const EventScreen = ({ navigation, event }) => {
   getEvent(navigation.getParam('eventId', '')).then(
     (response) => {
       let item = response.data;
-      let date = new Date(item.attributes.date.toString().split("T")[0]);
+      let date = new Date(item.attributes.date.toString());
       DATA = {
         id: item.id,
         poster: item.attributes.poster,
@@ -56,8 +56,8 @@ const EventScreen = ({ navigation, event }) => {
         username: item.relationships.user.data.nickname,
         followers: 123,
         follow: true,
-        day: date.getDay(),
-        month: monthNames[date.getUTCMonth()],
+        day: date.getDate(),
+        month: monthNames[date.getMonth()],
         info: item.attributes.details,
         place_id: item.relationships.place.data.id
       }
@@ -82,11 +82,10 @@ const EventScreen = ({ navigation, event }) => {
   );
 
   if(eventLoad){
-    console.log(DATA);
     return <EventView evento={DATA}/>;
   }
 
-  return <ActivityIndicator size="large" color="#0000ff" />
+  return <LoadingView/>
 }
 
 export default EventScreen;

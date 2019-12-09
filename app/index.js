@@ -36,7 +36,7 @@ async function _getAllEvents(){
     (responseJson) => {
       responseJson.data.forEach(
         (i) => {
-          let date = new Date(i.attributes.date.toString().split("T")[0]);
+          let date = new Date(i.attributes.date.toString());
           DATA.push(
             {
               id: i.id,
@@ -46,8 +46,8 @@ async function _getAllEvents(){
               username: i.relationships.user.data.nickname,
               followers: 123,
               follow: true,
-              day: date.getDay(),
-              month: monthNames[date.getUTCMonth()]
+              day: date.getDate(),
+              month: monthNames[date.getMonth()]
             }
           );
         }
