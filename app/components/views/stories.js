@@ -5,4 +5,5 @@ import "./HomeView/story";
 import "./NoEventsView/story";
 import "./NewEventView/story";
 import "./EventView/story";
-import "./SuccessView/story"
+import "./SuccessView/story";
+import "./UserView/story";
