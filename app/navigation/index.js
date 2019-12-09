@@ -8,6 +8,7 @@ import HomeScreen from '../screens/HomeScreen';
 import NewEventScreen from '../screens/NewEventScreen';
 import EventScreen from '../screens/EventScreen';
 import SuccessRegisterScreen from '../screens/SuccessRegisterScreen';
+import UserScreen from '../screens/UserScreen';
 
 const defaultOptions = {
 	      	headerStyle: {
@@ -28,6 +29,15 @@ const NewEventNavigator = createStackNavigator(
 		defaultNavigationOptions: defaultOptions
 	});
 
+const UserNavigator = createStackNavigator(
+	{
+		UserScreen: {screen: UserScreen,  navigationOptions: () => ({title: `Mi Perfil`})},
+	},
+	{
+		initialRouteName: 'UserScreen', 
+		defaultNavigationOptions: defaultOptions
+	});
+
 const EventNavigator = createStackNavigator(
 	{
 		HomeScreen: {screen: HomeScreen,  navigationOptions: () => ({title: `Eventos`})},
@@ -41,7 +51,8 @@ const EventNavigator = createStackNavigator(
 const AppNavigator = createDrawerNavigator(
 	{	
 		DrawerNavigation: {screen: EventNavigator, navigationOptions: () => ({drawerLabel: `Lista de Eventos`})},
-		NewEventNavigation: {screen: NewEventNavigator, navigationOptions: () => ({drawerLabel: `Nuevo Evento`})}
+		NewEventNavigation: {screen: NewEventNavigator, navigationOptions: () => ({drawerLabel: `Nuevo Evento`})},
+		UserNavigation: {screen: UserNavigator, navigationOptions: () => ({drawerLabel: `Mi Perfil`})}
 	}, 
 	{ 
 		initialRouteName: 'DrawerNavigation', 

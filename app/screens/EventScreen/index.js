@@ -1,31 +1,91 @@
-import React from 'react';
+import React, { useState } from "react";
 import EventView from '../../components/views/EventView';
+import LoadingView from '../../components/views/LoadingView';
 
-const DATA =
-  {
-    id:1,
-    poster:'https://www.las2orillas.co/wp-content/uploads/2017/04/UNal-1-780x514.jpg',
-    event:"Evento",
-    place:"lugar",
-    username:"cuenta que lo creo",
-    followers:123,
-    follow: true,
-    day: '23',
-    month: 'Jan',
-    info: "Mucha informacion sobre que trata el evento Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    markers:
-    [{
-      title: "marcador 1",
-      description: "Mock marker",
-      coordinates: {
-        latitude: 4.637928884427862,
-        longitude: -74.08430093899369
+import { endPoint, events, places } from '../../config/routes';
+
+let DATA = {};
+const monthNames = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.",
+  "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
+
+async function getEvent(id){
+  let complete_url = `${endPoint}${events}/${id}`;
+
+  return fetch(complete_url).then(
+    (response) => response.json()
+  ).then(
+    (responseJson) => {
+      return responseJson;
+    }
+  ).catch(
+    (error) => {
+      console.error(error);
+    }
+  );
+}
+
+async function getPlace(id){
+  let complete_url = `${endPoint}${places}/${id}`;
+
+  return fetch(complete_url).then(
+    (response) => response.json()
+  ).then(
+    (responseJson) => {
+      return responseJson;
+    }
+  ).catch(
+    (error) => {
+      console.error(error);
+    }
+  );
+}
+
+const EventScreen = ({ navigation, event }) => {
+
+  const [eventLoad, setEventLoad] = useState(false);
+
+  getEvent(navigation.getParam('eventId', '')).then(
+    (response) => {
+      let item = response.data;
+      let date = new Date(item.attributes.date.toString());
+      DATA = {
+        id: item.id,
+        poster: item.attributes.poster,
+        event: item.attributes.title,
+        place: item.attributes["place-detail"],
+        username: item.relationships.user.data.nickname,
+        followers: 123,
+        follow: true,
+        day: date.getDate(),
+        month: monthNames[date.getMonth()],
+        info: item.attributes.details,
+        place_id: item.relationships.place.data.id
       }
-    }]
+
+      getPlace(DATA.place_id).then(
+        (response) => {
+          let item = response.data.attributes;
+          let marker = {
+            title: item.name,
+            coordinates: {
+              latitude: item.latitude,
+              longitude: item.longitude
+            }
+          }
+
+          DATA["markers"] = [marker];
+
+          setEventLoad(true);
+        }
+      )
+    }
+  );
+
+  if(eventLoad){
+    return <EventView evento={DATA}/>;
   }
 
-const EventScreen = ({ navigation }) => {
-  	return <EventView evento={DATA}/>;
+  return <LoadingView/>
 }
 
 export default EventScreen;

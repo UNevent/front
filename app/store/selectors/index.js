@@ -1,13 +1,29 @@
+import { validateSession } from '../../components/common/Authentication';
+
 export function getTokenAuth(state){
-	// retornar token real
-	return ('abc');
+	return state.session.token;
 }
 
 export function getDataAuth(state){
-	// retornar datos de usuario
 	return state;
 }
 
 export function isAuth(state){
-	return !!state.session.user && !!state.session.pass;
+	return validateSession(state.session.token, state.session.client, state.session.user).then(
+		(response) => {
+			if(response.success){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	).catch(
+		(error) => {
+            return false;
+        }
+	);
+}
+
+export function getEventsData(state){
+	return state.eventsData;
 }

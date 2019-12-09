@@ -1,24 +1,35 @@
 import { AsyncStorage } from 'react-native';
-import { useState } from "react";
 
 export function getInitialState(){
 	return {
 		session: {
 			user: "",
-			pass: ""
+			pass: "",
+			client: "",
+			token: "",
 		},
 	}
 }
 
-
 export function setAuthData(estado, accion){
-	const {user, pass} = accion;
+	const {user, pass, client, token} = accion;
 
 	return {
 		...estado,
 		session: {
 			user,
-			pass
+			pass,
+			client,
+			token,
 		}
 	};
+}
+
+export function setEventsData(estado, accion){
+	const {eventsData} = accion;
+
+	return {
+		...estado,
+		eventsData,
+	}
 }

@@ -6,29 +6,104 @@ import { AsyncStorage } from "react-native";
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import store from './store';
 import { AppLoading } from 'expo';
-import { authenticate } from './store/actions';
+import { authenticate, saveEvents } from './store/actions';
+
+import { endPoint, events } from './config/routes';
+import { validateSession } from './components/common/Authentication';
 
 EStyleSheet.build();
 
+// carga el usuario
 _userAsync = async () => {
 	return await AsyncStorage.getItem('usr');
 }
 
+// carga la contrasena
 _passAsync = async () => {
 	return await AsyncStorage.getItem('pw');
 }
 
+_tokenAsync = async () => {
+  return await AsyncStorage.getItem('token');
+}
+
+_clientAsync = async () => {
+  return await AsyncStorage.getItem('client');
+}
+
+const DATA = [];
+const monthNames = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.",
+  "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
+
+async function _getAllEvents(){
+  let complete_url = `${endPoint}${events}`;
+
+  return fetch(complete_url).then(
+    (response) => response.json()
+  ).then(
+    (responseJson) => {
+      responseJson.data.forEach(
+        (i) => {
+          let date = new Date(i.attributes.date.toString());
+          DATA.push(
+            {
+              id: i.id,
+              poster: i.attributes.poster,
+              event: i.attributes.title,
+              place: i.attributes["place-detail"],
+              username: i.relationships.user.data.nickname,
+              followers: 123,
+              follow: true,
+              day: date.getDate(),
+              month: monthNames[date.getMonth()]
+            }
+          );
+        }
+      );
+    }
+  ).catch(
+    (error) => {
+      console.error(error);
+    }
+  );
+}
+
+// promesa que carga los eventos
+_getEvents = async (loadEvents) => {
+  await loadEvents(DATA);
+}
+
+// une los datos de usuario
 async function _getSession(auth){
 	const session = {
 		user: await _userAsync(),
-		pass: await _passAsync()
+    pass: await _passAsync(),
+    token: await _tokenAsync(),
+    client: await _clientAsync()
 	}
 	
-	if(session.user && session.pass){
-		auth(session.user, session.pass);
+	if(session.user && session.pass && session.token && session.client){
+    await validateSession(session.token, session.client, session.user).then(
+      (response) => {
+        if(response.success){
+          if(response.data){
+            auth(session.user, session.pass,  session.client, session.token);
+          }
+        }
+      }
+    );
 	}
 }
 
+// esta funcion carga todo
+async function loadAllData(events, session){
+  await _getAllEvents().then(
+    async (response) => {await _getEvents(events)}
+  );
+  await _getSession(session);
+}
+
+// muestra el splash screen o la aplicacion dependiendo si ya cargo todo
 function AppComponent(){
 	const dispatch = useDispatch();
 
@@ -40,17 +115,19 @@ function AppComponent(){
 		);
 	}
 
-	const auth = (correo, contrasena) => dispatch(authenticate(correo, contrasena));
+  const auth = (correo, contrasena, client, token) => dispatch(authenticate(correo, contrasena, client, token));
+  const loadEvents = (data) => dispatch(saveEvents(data));
 
 	return(
 		<AppLoading
-	      startAsync={() => _getSession(auth)}
+	      startAsync={() => loadAllData(loadEvents, auth)}
 	      onFinish={() => setSessionLoaded(true)}
 	      onError={console.warn}
 	    />
 	);
 }
 
+// navigator
 export default registerRootComponent(() => {
 	return(
 		<Provider store={store}>
