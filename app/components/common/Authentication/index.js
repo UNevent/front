@@ -61,3 +61,32 @@ export async function validateSession(token, client, uid){
         }
     );
 }
+
+export async function register(email, password, passwordConfirm){
+    const complete_url = `${endPoint}${auth_register}`;
+
+    return fetch(complete_url, {
+        method: 'POST',
+        headers: {
+        Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            password_confirmation: passwordConfirm
+        }),
+    }).then(
+        (response) => (
+            response.json()
+        )
+    ).then(
+        (responseJson) => {
+            return responseJson;
+        }
+    ).catch(
+        (error) => {
+            console.error(error);
+        }
+    );
+}
