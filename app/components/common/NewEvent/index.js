@@ -203,9 +203,12 @@ const NewEventView = ({create}) => {
           format="DD MMM YYYY, h:mm a"
           minDate="01-01-2016"
           maxDate= {new Date('01/12/2026')}
-          confirmBtnText="Confirm"
-          cancelBtnText="Cancel"
+          confirmBtnText="Aceptar"
+          cancelBtnText="Cancelar"
           date={date }
+          iosPickerMode="date"
+          androidPickerMode="spinner"
+         
           customStyles={{
             dateIcon: {
               position: 'absolute',
@@ -214,7 +217,15 @@ const NewEventView = ({create}) => {
               paddingLeft: 10
             },
             dateInput: {
-              marginLeft: 36
+              marginLeft: 36,
+              color: 'black',
+              width: '200%'
+            },
+            datePicker: {
+              color: 'black'
+            },
+            datePickerCon: {
+              color: 'black'
             }
           }}
           onDateChange={setDate}
@@ -230,8 +241,12 @@ const NewEventView = ({create}) => {
           defaultValue={query}
           onChangeText={text => setQuery(text)}
           placeholder={"Sitio"}
+          containerStyle = {styles.containerStyle}
+          inputContainerStyle	 = {styles.inputContainerStyle}
+          listContainerStyle={styles.listStyle}
+          inputStyle={{color: "#DFDFDF"}}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => {setQuery(item.text); setPlaceId(item.id)}}>
+            <TouchableOpacity style={styles.listStyle} onPress={() => {setQuery(item.text); setPlaceId(item.id)}}>
               <Text>{item.text}</Text>
             </TouchableOpacity>
           )}
