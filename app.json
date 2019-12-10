@@ -28,11 +28,13 @@
         "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets.",
         "NSAppTransportSecurity": {
           "NSExceptionDomains": {
-            "192.168.0.23": {
+            "un-event.herokuapp.com": {
               "NSTemporaryExceptionAllowsInsecureHTTPLoads": true
             }
           }
-        }
+        },
+        "NSPhotoLibraryAddUsageDescription": "Give Expo experiences permission to save photos",
+        "NSPhotoLibraryUsageDescription": "Give Expo experiences permission to access your photos"
       }
     },
     "description": ""

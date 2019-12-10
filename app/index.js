@@ -6,8 +6,9 @@ import { AsyncStorage } from "react-native";
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import store from './store';
 import { AppLoading } from 'expo';
-import { authenticate, saveEvents } from './store/actions';
+import { authenticate, saveEvents, saveAditionals } from './store/actions';
 import { validateSession } from './components/common/Authentication';
+import { getTags, getPlaces } from './components/common/Aditionals';
 
 EStyleSheet.build();
 
@@ -58,9 +59,26 @@ async function _getSession(auth){
 	}
 }
 
+async function _getAditionals(load){
+  await getPlaces().then(
+    (response) => {
+      if(response.data && !response.errors){
+        getTags().then(
+          (respuesta) => {
+            if(respuesta.data && !respuesta.errors){
+              load(respuesta.data, response.data);
+            }
+          }
+        );
+      }
+    }
+  );
+}
+
 // esta funcion carga todo
-async function loadAllData(events, session){
+async function loadAllData(events, session, aditionals){
   await _getSession(session);
+  await _getAditionals(aditionals);
 }
 
 // muestra el splash screen o la aplicacion dependiendo si ya cargo todo
@@ -77,9 +95,11 @@ function AppComponent(){
 
   const auth = (correo, contrasena, client, token) => dispatch(authenticate(correo, contrasena, client, token));
   const loadEvents = (data) => dispatch(saveEvents(data));
+  const loadAditionals = (tags, places) => dispatch(saveAditionals(tags, places));
+
 	return(
 		<AppLoading
-	      startAsync={() => loadAllData(loadEvents, auth)}
+	      startAsync={() => loadAllData(loadEvents, auth, loadAditionals)}
 	      onFinish={() => setSessionLoaded(true)}
 	      onError={console.warn}
 	    />

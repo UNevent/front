@@ -119,6 +119,7 @@ const NewEventView = ({create}) => {
           />
         <ButtonText name={"Seleccionar imagen"} background={'outline'} value={poster} onChangeText={setDetails}></ButtonText>
         <ButtonText name={"Publicar"}  evento={createEvent}></ButtonText>
+        <ButtonText name={"state"}  evento={() => console.log(auth_selector)}></ButtonText>
       </View>
   	);
 };
