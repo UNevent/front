@@ -1,5 +1,4 @@
 import { createStackNavigator, createAppContainer, createSwitchNavigator, DrawerItems, createDrawerNavigator } from 'react-navigation';
-import { getInitialState } from '../store/reducers/implementation';
 
 import LandingScreen from '../screens/LandingScreen';
 import RegisterScreen from '../screens/RegisterScreen';
@@ -9,6 +8,7 @@ import NewEventScreen from '../screens/NewEventScreen';
 import EventScreen from '../screens/EventScreen';
 import SuccessRegisterScreen from '../screens/SuccessRegisterScreen';
 import UserScreen from '../screens/UserScreen';
+import LogoutScreen from '../screens/LogoutScreen';
 
 const defaultOptions = {
 	      	headerStyle: {
@@ -38,6 +38,15 @@ const UserNavigator = createStackNavigator(
 		defaultNavigationOptions: defaultOptions
 	});
 
+const LogoutNavigator = createStackNavigator(
+	{
+		SignOutScreen: {screen: LogoutScreen,  navigationOptions: () => ({title: `Cerrar Sesión`})},
+	},
+	{
+		initialRouteName: 'SignOutScreen', 
+		defaultNavigationOptions: defaultOptions
+	});
+
 const EventNavigator = createStackNavigator(
 	{
 		HomeScreen: {screen: HomeScreen,  navigationOptions: () => ({title: `Eventos`})},
@@ -48,11 +57,14 @@ const EventNavigator = createStackNavigator(
 		defaultNavigationOptions: defaultOptions
 	});
 
+
+
 const AppNavigator = createDrawerNavigator(
 	{	
+		UserNavigation: {screen: UserNavigator, navigationOptions: () => ({drawerLabel: `Mi Perfil`})},
 		DrawerNavigation: {screen: EventNavigator, navigationOptions: () => ({drawerLabel: `Lista de Eventos`})},
 		NewEventNavigation: {screen: NewEventNavigator, navigationOptions: () => ({drawerLabel: `Nuevo Evento`})},
-		UserNavigation: {screen: UserNavigator, navigationOptions: () => ({drawerLabel: `Mi Perfil`})}
+		SignOutNavigation: {screen: LogoutNavigator, navigationOptions: () => ({drawerLabel: `Cerrar Sesión`})},
 	}, 
 	{ 
 		initialRouteName: 'DrawerNavigation', 
