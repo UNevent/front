@@ -13,22 +13,9 @@ import * as Permissions from 'expo-permissions';
 import { validateSession } from '../Authentication';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getDataAuth, getSession } from '../../../store/selectors';
+import { getPlaces, getAditionals, getSession } from '../../../store/selectors';
 
-const auto = [
-  {
-    id: 1,
-    text: 't1'
-  },
-  {
-    id: 2,
-    text: 't2'
-  },
-  {
-    id: 3,
-    text: 't3'
-  }
-];
+const auto = () => {return useSelector(getPlaces)};
 
 function findOption(query){
   if(!!query && query != undefined){
@@ -37,41 +24,10 @@ function findOption(query){
     }
   
     const regex = new RegExp(`${query.trim()}`, 'i');
-    return auto.filter(item => item.text.search(regex) >= 0);
+    return auto().filter(item => item.text.search(regex) >= 0);
   }
 
   return [];
-}
-const options = {
-  title: 'Select Avatar',
-  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
-  },
-};
-
-function pickerImg(){
-  ImagePicker.showImagePicker(options, (response) => {
-    console.log('Response = ', response);
-  
-    if (response.didCancel) {
-      console.log('User cancelled image picker');
-    } else if (response.error) {
-      console.log('ImagePicker Error: ', response.error);
-    } else if (response.customButton) {
-      console.log('User tapped custom button: ', response.customButton);
-    } else {
-      const source = { uri: response.uri };
-  
-      // You can also display the image using data:
-      // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-  
-      this.setState({
-        avatarSource: source,
-      });
-    }
-  });
 }
 
 getPermissionAsync = async () => {
@@ -199,17 +155,6 @@ const NewEventView = ({create}) => {
         <InputText placeholder={"Lugar"} value={place_id} onChangeText={setPlaceId} icon={'map'}></InputText>
         <InputText placeholder={"Salón"} value={place_detail} onChangeText={setPlaceDetail} ></InputText>
         <TextArea placeholder={"Descripción"} value={details} onChangeText={setDetails}></TextArea>
-        <Autocomplete
-            data={datos.length === 1 && comp(query, datos[0].text) ? [] : datos}
-            defaultValue={query}
-            onChangeText={text => setQuery(text)}
-            placeholder={"Sitio"}
-            renderItem={({ item }) => (
-              <TouchableOpacity key={item.id} onPress={() => {setQuery(item.text)}}>
-                <Text>{item.text}</Text>
-              </TouchableOpacity>
-            )}
-          />
         <ButtonText name={"Seleccionar imagen"} background={'outline'} value={poster} evento={() => _pickImage().then((result) => {if(!result.cancelled){setImageB64(result.base64)}})}></ButtonText>
         <ButtonText name={"Publicar"}  evento={createEvent}></ButtonText>
       </View>

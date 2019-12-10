@@ -9,16 +9,27 @@ import { useSelector } from 'react-redux';
 import { validateSession } from "../../common/Authentication";
 import { getSession } from '../../../store/selectors'
 
-async const getAuthData = (token, client, user) => {
+async function getAuthData(token, client, user) {
 	return await validateSession(token, client, user);
 }
 
 const UserView = ({goToHome}) => {
 	[loaded, setLoaded] = useState(false);
+	[userData, setUserData] = useState('');
 	const auth_selector = useSelector(getSession);
 
 	getAuthData(auth_selector.token, auth_selector.client, auth_selector.user).then(
-		(response) => console.log
+		(response) => {
+			let auth = {
+				email: response.data.email,
+				name: response.data.name,
+				nick: response.data.nickname,
+				id: response.data.id
+			}
+
+			setUserData(auth);
+			setLoaded(true);
+		}
 	);
 
 	if(loaded){
@@ -26,10 +37,11 @@ const UserView = ({goToHome}) => {
 			<ImageBackground source={Images.backmap} style={styles.backmap}>
 					<View style={styles.user}>
 							<AvatarIcon style={ styles.avatar}
+								title={userData.nick.charAt(0).toUpperCase()}
 							/>
 							<View style={styles.userInfo} >
-								<Text style={styles.userName}>Daniel Felipe Bueno</Text>
-								<Text style={styles.userEmail}>dafbuenoca@unal.edu.co</Text>
+							<Text style={styles.userName}>{userData.name}</Text>
+							<Text style={styles.userEmail}>{userData.email}</Text>
 							</View>
 					</View>
 					<View style={styles.userPreferences}>
