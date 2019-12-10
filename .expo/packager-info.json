@@ -1,17 +1,3 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-<<<<<<< HEAD
-  "packagerPid": 12128,
-  "expoServerNgrokUrl": "https://f9-jnh.dafrodriguezro.front.exp.direct",
-  "packagerNgrokUrl": "https://packager.f9-jnh.dafrodriguezro.front.exp.direct",
-  "ngrokPid": 11204,
-=======
-  "packagerPid": 6836,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
->>>>>>> 0bafa2e3a2de72d39bfcf46ac3d5349ca61d583b
-  "devToolsPort": 19002,
-  "webpackServerPort": null
+  "devToolsPort": 19002
 }
