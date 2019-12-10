@@ -234,25 +234,25 @@ const NewEventView = ({create}) => {
         <InputText placeholder={"Lugar"} value={place_id} icon={'map'}></InputText>
         <InputText placeholder={"Salón"} value={place_detail} onChangeText={setPlaceDetail} ></InputText>
         <TextArea placeholder={"Descripción"} value={details} onChangeText={setDetails}></TextArea>
-
-        <Autocomplete
+        <View style={styles.autocompleteContainer}>
+        <Autocomplete style={styles.AutoStyle}
           data={datos.length === 1 && comp(query, datos[0].text) ? [] : datos}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           defaultValue={query}
           onChangeText={text => setQuery(text)}
           placeholder={"Sitio"}
           containerStyle = {styles.containerStyle}
           inputContainerStyle	 = {styles.inputContainerStyle}
-          listContainerStyle={styles.listStyle}
-          inputStyle={{color: "#DFDFDF"}}
+          listContainerStyle={styles.listContainerStyle}
+          listStyle={styles.listStyle}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.listStyle} onPress={() => {setQuery(item.text); setPlaceId(item.id)}}>
-              <Text>{item.text}</Text>
+            <TouchableOpacity style={styles.touchStyle} onPress={() => {setQuery(item.text); setPlaceId(item.id.toString())}}>
+              <Text style={styles.itemStyle}>{item.text}</Text>
             </TouchableOpacity>
           )}
         />
-
-        <ButtonText name={"Seleccionar imagen"} background={'outline'} value={poster} evento={() => _pickImage().then((result) => {if(!result.cancelled){setImageB64(result.base64)}})}></ButtonText>
+      </View>
+        <ButtonText name={"Seleccionar imagen"} style={styles.btn} background={'outline'} value={poster} evento={() => _pickImage().then((result) => {if(!result.cancelled){setImageB64(result.base64)}})}></ButtonText>
         <ButtonText name={"Publicar"}  evento={createEvent}></ButtonText>
       </View>
     );

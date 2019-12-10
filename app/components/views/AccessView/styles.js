@@ -20,5 +20,6 @@ export default EStyleSheet.create({
     fontSize: 50,
     fontWeight: 'bold',
     textAlign: 'center',
+    paddingBottom: "3rem"
   }
 });

@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 396,
-  "expoServerNgrokUrl": "https://ax-pxd.anonymous.front.exp.direct",
-  "packagerNgrokUrl": "https://packager.ax-pxd.anonymous.front.exp.direct",
-  "ngrokPid": 13304
+  "packagerPid": 3804,
+  "expoServerNgrokUrl": "https://ax-pxd.dianav.front.exp.direct",
+  "packagerNgrokUrl": "https://packager.ax-pxd.dianav.front.exp.direct",
+  "ngrokPid": 8540
 }
