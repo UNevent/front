@@ -33,3 +33,15 @@ export function setEventsData(estado, accion){
 		eventsData,
 	}
 }
+
+export function setAditionals(estado, accion){
+	const {tags, places} = accion;
+
+	return {
+		...estado,
+		aditionals: {
+			tags,
+			places,
+		}
+	}
+}

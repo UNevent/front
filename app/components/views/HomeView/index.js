@@ -13,7 +13,7 @@ const HomeView = ({ goToNewEvent, events, goToEvent }) => {
           <FlatList
             data={events}
             renderItem={({ item }) => 
-            <TouchableOpacity activeOpacity={0.2} onPress={() => {goToEvent.navigate('EventScreen', {eventId: item.id})}}> 
+            <TouchableOpacity activeOpacity={0.2} onPress={() => {goToEvent.navigate('EventScreen', {eventId: item.id, event: item})}}> 
               <CardEvent  
                   poster={item.poster}
                   event={item.event}

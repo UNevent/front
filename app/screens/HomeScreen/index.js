@@ -2,37 +2,48 @@ import React, { useState, useEffect } from "react";
 import HomeView from '../../components/views/HomeView';
 import NoEventsView from '../../components/views/NoEventsView';
 import LoadingView from '../../components/views/LoadingView';
-import { endPoint, events } from '../../config/routes';
+import { endPoint, events, eventsfull } from '../../config/routes';
 
 const monthNames = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.",
   "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
 
 async function getAllEvents(){
   let DATA = [];
-  let complete_url = `${endPoint}${events}`;
+  let complete_url = `${endPoint}${eventsfull}`;
 
   const respuesta = await fetch(complete_url).then(
     (response) => response.json()
   )
 
-  respuesta.data.forEach(
+  respuesta.forEach(
     function(i){
+
+      let element = i.event;
       let date = new Date();
-      if(i.attributes.date != null){
-        date = new Date(i.attributes.date.toString());
+      if(element.date != null){
+        date = new Date(element.date.toString());
       }
 
       DATA.push(
         {
-          id: i.id,
-          poster: i.attributes.poster,
-          event: i.attributes.title,
-          place: i.attributes["place-detail"],
-          username: i.relationships.user.data.nickname,
-          followers: 123,
-          follow: true,
+          id: element.id,
+          poster: element.poster,
+          event: element.title,
+          place: element["place_detail"],
+          username: element["user_nick"],
+          followers: i.likes.quantity,
+          follow: i.likes.me,
           day: date.getDate(),
-          month: monthNames[date.getMonth()]
+          month: monthNames[date.getMonth()],
+          details: element.details,
+          markers: [{
+            title: element["place_name"],
+            coordinates: {
+              latitude: element.latitude,
+              longitude: element.longitude
+            }
+          }],
+          info: element.details,
         }
       );
     }

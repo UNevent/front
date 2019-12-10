@@ -44,6 +44,8 @@ const EventScreen = ({ navigation, event }) => {
 
   const [eventLoad, setEventLoad] = useState(false);
 
+  DATA = navigation.getParam('event', '')
+/*
   getEvent(navigation.getParam('eventId', '')).then(
     (response) => {
       let item = response.data;
@@ -79,13 +81,10 @@ const EventScreen = ({ navigation, event }) => {
         }
       )
     }
-  );
+  );*/
 
-  if(eventLoad){
     return <EventView evento={DATA}/>;
-  }
 
-  return <LoadingView/>
 }
 
 export default EventScreen;

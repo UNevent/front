@@ -31,3 +31,7 @@ export async function isAuth(state){
 export function getEventsData(state){
 	return state.eventsData;
 }
+
+export function getAditionals(state){
+	return state.aditionals;
+}

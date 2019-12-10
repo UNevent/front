@@ -77,7 +77,6 @@ function AppComponent(){
 
   const auth = (correo, contrasena, client, token) => dispatch(authenticate(correo, contrasena, client, token));
   const loadEvents = (data) => dispatch(saveEvents(data));
-
 	return(
 		<AppLoading
 	      startAsync={() => loadAllData(loadEvents, auth)}
