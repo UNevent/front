@@ -37,9 +37,12 @@
         "NSPhotoLibraryUsageDescription": "Give Expo experiences permission to access your photos"
       }
     },
-    "android":{
-      "permissions":[
-        "CAMERA", "WRITE_EXTERNAL_STORAGE","VIBRATE","READ_EXTERNAL_STORAGE"
+    "android": {
+      "permissions": [
+        "CAMERA",
+        "WRITE_EXTERNAL_STORAGE",
+        "VIBRATE",
+        "READ_EXTERNAL_STORAGE"
       ]
     },
     "description": ""

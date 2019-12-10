@@ -31,6 +31,7 @@ _clientAsync = async () => {
 }
 
 const DATA = [];
+console.disableYellowBox = true;
 
 // promesa que carga los eventos
 _getEvents = async (loadEvents) => {
