@@ -42,19 +42,18 @@ function findOption(query){
 const NewEventView = ({create}) => {
     const [query, setQuery] = useState('');
     const [title, setTitle] = useState('');
+    const [date, setDate] = useState(new Date());
     const [place_id, setPlaceId] = useState('');
     const [place_detail, setPlaceDetail] = useState('');
     const [details, setDetails] = useState('');
     const [poster, setPoster] = useState('');
 
-    
-
     const datos = findOption(query);
     const comp = (a, b) => a.toLowerCase().trim() === b.toLowerCase().trim();
 
     const createEvent = () => {
-      if(title != ''){
-        newEvent(1, 2, title, date.toString(), place_detail, details, poster, [2,5]).then(
+      if(title != '' && date != ''){
+        newEvent(1, 2, title, date, place_detail, details, poster, [2,5]).then(
           (response) =>{
             if(!response.success){
               if(response.data){
@@ -81,28 +80,28 @@ const NewEventView = ({create}) => {
       <View style={styles.container}>
         <InputText placeholder={"Nombre evento:"} value={title} onChangeText={setTitle}></InputText>
         <DatePicker
-          style={{width: 200}} //initial date from state
-          mode="date" //The enum of date, datetime and time
-          placeholder="select date"
-          format="DD-MM-YYYY"
+          style={{width: 200,marginLeft: 40, backgroundColor:'#fff'}} //initial date from state
+          mode="datetime" //The enum of date, datetime and time
+          placeholder="Seleccionar fecha"
+          format="DD MMM YYYY, h:mm a"
           minDate="01-01-2016"
-          maxDate="01-01-2025"
+          maxDate= {new Date('01/12/2026')}
           confirmBtnText="Confirm"
           cancelBtnText="Cancel"
+          date={date }
           customStyles={{
             dateIcon: {
               position: 'absolute',
               left: 0,
               top: 4,
-              marginLeft: 200
+              paddingLeft: 10
             },
             dateInput: {
               marginLeft: 36
             }
           }}
-          onDateChange={date => {
-            this.setState({ date: date });
-          }}
+          onDateChange={setDate}
+          
         />
         <InputText placeholder={"Lugar"} value={place_id} onChangeText={setPlaceId} icon={'map'}></InputText>
         <InputText placeholder={"Salón"} value={place_detail} onChangeText={setPlaceDetail} ></InputText>

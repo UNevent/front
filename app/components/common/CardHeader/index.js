@@ -8,18 +8,20 @@ import ButtonFav from '../ButtonFav/index.js';
 const CardHeader = ({  event, place, username,followers, follow, day, month }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.dateContainer}>
-        <Text style={styles.date}>{day}</Text>
-        <Text style={styles.date}>{month}</Text>
-      </View>
       <View style={styles.info}>
         <Text style={styles.event}>{event}</Text>
         <Text style={styles.place}>{place}</Text>
         <Text style={styles.username}>{username}</Text>
       </View>
-      <View style={styles.follow}>
-        <ButtonFav check={follow}></ButtonFav>
-        <Text>{followers}</Text>
+      <View style={styles.izqContainer}>     
+        <View style={styles.containerDate}>
+          <Text style={styles.date}>{day} {month}</Text>
+          
+        </View>
+        <View style={styles.follow}>
+          <ButtonFav check={follow}></ButtonFav>
+          <Text>{followers}</Text>
+        </View>   
       </View>
     </View>
    

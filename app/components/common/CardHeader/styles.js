@@ -9,30 +9,37 @@ export default EStyleSheet.create({
     flexDirection: 'row',
     padding: '0.2rem'
   },
-  dateContainer:{
-    flex: 2,
-    width: WIDTH / 5,
-    height: WIDTH / 5,
-    borderWidth: 1,
-    borderColor: '#B5B5B5',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  date:{
-    fontSize:24,
-    color: '#333399'
-  },
   info:{
-    flex: 5,
+    flex: 6,
     marginLeft: 1,
     padding: '0.3rem',
+  },
+  izqContainer:{
+    flex: 2,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    width: WIDTH /5,
+    height: WIDTH /5
+  },
+  containerDate:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#B5B5B5',
+    width: WIDTH /5,
+    height: WIDTH /3
+  },
+  date:{
+    fontSize:22,
+    color: '#333399'
   },
   follow:{
     flex: 1,
     flexDirection: 'row-reverse',
-    padding: '1rem',
-    alignItems: 'center',
     justifyContent: 'flex-end',
+    alignItems: 'center',
+    
   },
   event:{
     fontSize: 18,

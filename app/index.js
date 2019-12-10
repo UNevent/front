@@ -8,7 +8,7 @@ import store from './store';
 import { AppLoading } from 'expo';
 import { authenticate, saveEvents } from './store/actions';
 
-import { endPoint, events } from './config/routes';
+import { endPoint, events, eventsfull } from './config/routes';
 import { validateSession } from './components/common/Authentication';
 
 EStyleSheet.build();
@@ -36,24 +36,23 @@ const monthNames = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.",
   "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
 
 async function _getAllEvents(){
-  let complete_url = `${endPoint}${events}`;
-
+  let complete_url = `${endPoint}${eventsfull}`;
   return fetch(complete_url).then(
     (response) => response.json()
   ).then(
     (responseJson) => {
-      responseJson.data.forEach(
+      responseJson.forEach(
         (i) => {
-          let date = new Date(i.attributes.date.toString());
+          let date = new Date(i.event.date.toString());
           DATA.push(
             {
-              id: i.id,
-              poster: i.attributes.poster,
-              event: i.attributes.title,
-              place: i.attributes["place-detail"],
-              username: i.relationships.user.data.nickname,
-              followers: 123,
-              follow: true,
+              id: i.event.id,
+              poster: i.event.poster,
+              event: i.event.title,
+              place: i.event["place_name"],
+              username: i.event["user_nick"],
+              followers: i.likes.quantity,
+              follow: i.likes.me,
               day: date.getDate(),
               month: monthNames[date.getMonth()]
             }

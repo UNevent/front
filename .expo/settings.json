@@ -1,6 +1,6 @@
 {
   "urlRandomness": "f9-jnh",
-  "hostType": "lan",
+  "hostType": "tunnel",
   "lanType": "ip",
   "dev": true,
   "minify": false,
