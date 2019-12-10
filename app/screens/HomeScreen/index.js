@@ -29,7 +29,7 @@ async function getAllEvents(){
           id: element.id,
           poster: element.poster,
           event: element.title,
-          place: element["place_detail"],
+          place: element["place_name"],
           username: element["user_nick"],
           followers: i.likes.quantity,
           follow: i.likes.me,
