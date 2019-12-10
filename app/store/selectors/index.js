@@ -35,3 +35,19 @@ export function getEventsData(state){
 export function getAditionals(state){
 	return state.aditionals;
 }
+
+export function getPlaces(state){
+	let arr = []
+	state.aditionals.places.forEach(
+		function(i){
+			let au = {
+				id: i.id,
+				text: i.attributes.name
+			}
+
+			arr.push(au);
+		}
+	);
+
+	return arr;
+}
