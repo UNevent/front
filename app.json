@@ -8,7 +8,7 @@
       "ios",
       "android"
     ],
-    "version": "0.1.0",
+    "version": "0.120",
     "orientation": "portrait",
     "icon": "./app/assets/unlogo.png",
     "splash": {
@@ -36,6 +36,11 @@
         "NSPhotoLibraryAddUsageDescription": "Give Expo experiences permission to save photos",
         "NSPhotoLibraryUsageDescription": "Give Expo experiences permission to access your photos"
       }
+    },
+    "android":{
+      "permissions":[
+        "CAMERA", "WRITE_EXTERNAL_STORAGE","VIBRATE","READ_EXTERNAL_STORAGE"
+      ]
     },
     "description": ""
   }

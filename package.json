@@ -11,7 +11,11 @@
   "dependencies": {
     "@react-native-community/datetimepicker": "^2.1.0",
     "expo": "^34.0.1",
+<<<<<<< HEAD
     "expo-image-picker": "^8.0.0",
+=======
+    "npm-upgrade": "^2.0.2",
+>>>>>>> 0bafa2e3a2de72d39bfcf46ac3d5349ca61d583b
     "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
