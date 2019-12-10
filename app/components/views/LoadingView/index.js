@@ -4,7 +4,7 @@ import { ImageBackground, ActivityIndicator, Text } from 'react-native';
 import Images from '../../../assets/Images';
 
 
-const HomeView = ({ goToNewEvent, events, goToEvent }) => {
+const LoadingView = ({  }) => {
   return (
     <ImageBackground source={Images.backmap} style={styles.backmap}>
         <ActivityIndicator size="large" color="#ffffff" />
@@ -12,4 +12,4 @@ const HomeView = ({ goToNewEvent, events, goToEvent }) => {
     </ImageBackground>
   );
 };
-export default HomeView;
+export default LoadingView;

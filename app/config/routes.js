@@ -1,4 +1,5 @@
-export const url = '192.168.0.23';
+export const url = 'un-event.herokuapp.com';
+//export const url = '192.168.0.23';
 export const port = '8080';
 
 export const tags = '/tags';
@@ -11,4 +12,7 @@ export const auth_login = '/auth/sign_in';
 export const auth_out = '/auth/sign_out';
 export const auth_validate_session = '/auth/validate_token';
 
-export const endPoint = `http://${url}:${port}`;
+//export const endPoint = `http://${url}:${port}`;
+
+// cambio a heroku
+export const endPoint = `http://${url}`;

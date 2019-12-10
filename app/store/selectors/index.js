@@ -8,13 +8,17 @@ export function getDataAuth(state){
 	return state;
 }
 
-export function isAuth(state){
+export function getSession(state){
+	return state.session;
+}
+
+export async function isAuth(state){
 	return validateSession(state.session.token, state.session.client, state.session.user).then(
 		(response) => {
-			if(response.success){
-				return true;
-			}else{
+			if(response.errors){
 				return false;
+			}else if(response.success){
+				return true;
 			}
 		}
 	).catch(

@@ -81,7 +81,6 @@ const LoginView = ({ ingresar }) => {
                 <InputText passBool={true} placeholder={"Contraseña"} icon={'vpn-key'} value={contrasena} onChangeText={setContrasena}></InputText>
             </View>
             <ButtonText name={"Acceder"} evento={auth}></ButtonText>
-            <ButtonText name={"Mostrar Sesion"} evento={() => console.log(auth_selector)}></ButtonText>
          </View>
   	);
 };
