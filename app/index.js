@@ -7,8 +7,6 @@ import { Provider, useSelector, useDispatch } from 'react-redux';
 import store from './store';
 import { AppLoading } from 'expo';
 import { authenticate, saveEvents } from './store/actions';
-
-import { endPoint, events } from './config/routes';
 import { validateSession } from './components/common/Authentication';
 
 EStyleSheet.build();
@@ -32,41 +30,6 @@ _clientAsync = async () => {
 }
 
 const DATA = [];
-const monthNames = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.",
-  "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
-
-async function _getAllEvents(){
-  let complete_url = `${endPoint}${events}`;
-
-  return fetch(complete_url).then(
-    (response) => response.json()
-  ).then(
-    (responseJson) => {
-      responseJson.data.forEach(
-        (i) => {
-          let date = new Date(i.attributes.date.toString());
-          DATA.push(
-            {
-              id: i.id,
-              poster: i.attributes.poster,
-              event: i.attributes.title,
-              place: i.attributes["place-detail"],
-              username: i.relationships.user.data.nickname,
-              followers: 123,
-              follow: true,
-              day: date.getDate(),
-              month: monthNames[date.getMonth()]
-            }
-          );
-        }
-      );
-    }
-  ).catch(
-    (error) => {
-      console.error(error);
-    }
-  );
-}
 
 // promesa que carga los eventos
 _getEvents = async (loadEvents) => {
@@ -97,9 +60,6 @@ async function _getSession(auth){
 
 // esta funcion carga todo
 async function loadAllData(events, session){
-  await _getAllEvents().then(
-    async (response) => {await _getEvents(events)}
-  );
   await _getSession(session);
 }
 
