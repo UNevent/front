@@ -2,6 +2,15 @@ export const url = 'un-event.herokuapp.com';
 //export const url = '192.168.0.23';
 export const port = '8080';
 
+export const imgur_client_id = 'c2476b42635cd3d';
+export const imgur_client_secret = '17c1ff8eab3702e9b902fa800d080de7723d08a8';
+export const imgur_endpoint = 'https://api.imgur.com/3';
+export const image = '/image';
+export const upload = '/upload';
+
+export const imgurAuth = 'Client-ID ' + imgur_client_id;
+
+
 export const tags = '/tags';
 export const places = '/places';
 export const event_tags = '/event_tags';
