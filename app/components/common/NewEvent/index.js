@@ -7,7 +7,7 @@ import TextArea from "../TextArea/index";
 import Autocomplete from 'react-native-autocomplete-input';
 import DatePicker from 'react-native-datepicker';
 import {newEvent} from '../Events/Create'; 
-
+import ImagePicker from 'react-native-image-picker';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDataAuth } from '../../../store/selectors';
 
@@ -37,6 +37,37 @@ function findOption(query){
   }
 
   return [];
+}
+const options = {
+  title: 'Select Avatar',
+  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
+
+function pickerImg(){
+  ImagePicker.showImagePicker(options, (response) => {
+    console.log('Response = ', response);
+  
+    if (response.didCancel) {
+      console.log('User cancelled image picker');
+    } else if (response.error) {
+      console.log('ImagePicker Error: ', response.error);
+    } else if (response.customButton) {
+      console.log('User tapped custom button: ', response.customButton);
+    } else {
+      const source = { uri: response.uri };
+  
+      // You can also display the image using data:
+      // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+  
+      this.setState({
+        avatarSource: source,
+      });
+    }
+  });
 }
 
 const NewEventView = ({create}) => {
@@ -117,7 +148,7 @@ const NewEventView = ({create}) => {
               </TouchableOpacity>
             )}
           />
-        <ButtonText name={"Seleccionar imagen"} background={'outline'} value={poster} onChangeText={setDetails}></ButtonText>
+        <ButtonText name={"Seleccionar imagen"} background={'outline'} value={poster} onPress={pickerImg}></ButtonText>
         <ButtonText name={"Publicar"}  evento={createEvent}></ButtonText>
       </View>
   	);
