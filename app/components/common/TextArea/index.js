@@ -19,6 +19,7 @@ const TextArea = ({ placeholder, width, lines, passBool, ...props }) => {
       placeholderTextColor="#DFDFDF"
       secureTextEntry={passBool}
       inputStyle={{color: "#DFDFDF"}}
+      multiline={true}
     />
    
   )

@@ -10,14 +10,17 @@ export default EStyleSheet.create({
   inputDate:{
     width: WIDTH * 0.7
   },
+  datePickerContainer:{
+    width: WIDTH - 55,
+    backgroundColor:'rgba(0,0,0,0.35)',
+    borderWidth: 0,
+    marginHorizontal:25,    
+  },
   containerStyle:{
     width: WIDTH - 55,
     marginHorizontal:25,
     marginVertical:  7,
     zIndex: 1,
-  },
-  inputContainerStyle	: {
-    borderColor: 'white',
   },
   listStyle: {
     backgroundColor: 'rgba(0,0,0,0.5)',  
@@ -29,9 +32,16 @@ export default EStyleSheet.create({
     width: '107%' ,
 
   },
+  inputContainerStyle	: {
+    borderWidth: 0,
+    borderBottomWidth: 1,
+  },
   AutoStyle:{
     backgroundColor: 'rgba(0,0,0,0.35)',
     color: 'rgb(255,255,255)' ,
+    fontSize: 18,
+    height: 40,
+    paddingLeft: '0.5rem',
   },
   touchStyle: {   
     backgroundColor: 'rgba(0,0,0,0)',

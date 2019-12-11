@@ -130,7 +130,7 @@ const NewEventView = ({create}) => {
 
   const [query, setQuery] = useState('');
   const [title, setTitle] = useState('');
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState('');
   const [place_id, setPlaceId] = useState('');
   const [place_detail, setPlaceDetail] = useState('');
   const [details, setDetails] = useState('');
@@ -197,10 +197,10 @@ const NewEventView = ({create}) => {
       <View style={styles.container}>
         <InputText placeholder={"Nombre evento:"} value={title} onChangeText={setTitle}></InputText>
         <DatePicker
-          style={{width: 200,marginLeft: 40, backgroundColor:'#fff'}} //initial date from state
+          style={styles.datePickerContainer} //initial date from state
           mode="datetime" //The enum of date, datetime and time
           placeholder="Seleccionar fecha"
-          format="DD MMM YYYY, h:mm a"
+          format="DD MMMM YYYY, h:mm a"
           minDate="01-01-2016"
           maxDate= {new Date('01/12/2026')}
           confirmBtnText="Aceptar"
@@ -208,50 +208,49 @@ const NewEventView = ({create}) => {
           date={date }
           iosPickerMode="date"
           androidPickerMode="spinner"
-         
-          customStyles={{
+          
+         customStyles={{
             dateIcon: {
               position: 'absolute',
               left: 0,
               top: 4,
-              paddingLeft: 10
+              paddingLeft: 10,
             },
-            dateInput: {
+            /*dateInput: {
               marginLeft: 36,
-              color: 'black',
+              color: '#000',
               width: '200%'
             },
-            datePicker: {
+             datePicker: {
               color: 'black'
             },
             datePickerCon: {
               color: 'black'
-            }
+            }*/
           }}
           onDateChange={setDate}
           
         />
-        <InputText placeholder={"Lugar"} value={place_id} icon={'map'}></InputText>
-        <InputText placeholder={"Salón"} value={place_detail} onChangeText={setPlaceDetail} ></InputText>
-        <TextArea placeholder={"Descripción"} value={details} onChangeText={setDetails}></TextArea>
         <View style={styles.autocompleteContainer}>
-        <Autocomplete style={styles.AutoStyle}
-          data={datos.length === 1 && comp(query, datos[0].text) ? [] : datos}
-          keyExtractor={(item) => item.id.toString()}
-          defaultValue={query}
-          onChangeText={text => setQuery(text)}
-          placeholder={"Sitio"}
-          containerStyle = {styles.containerStyle}
-          inputContainerStyle	 = {styles.inputContainerStyle}
-          listContainerStyle={styles.listContainerStyle}
-          listStyle={styles.listStyle}
-          renderItem={({ item }) => (
-            <TouchableOpacity style={styles.touchStyle} onPress={() => {setQuery(item.text); setPlaceId(item.id.toString())}}>
-              <Text style={styles.itemStyle}>{item.text}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
+          <Autocomplete style={styles.AutoStyle}
+            data={datos.length === 1 && comp(query, datos[0].text) ? [] : datos}
+            keyExtractor={(item) => item.id.toString()}
+            defaultValue={query}
+            onChangeText={text => setQuery(text)}
+            placeholder={"Lugar"}
+            containerStyle = {styles.containerStyle}
+            inputContainerStyle	 = {styles.inputContainerStyle}
+            listContainerStyle={styles.listContainerStyle}
+            listStyle={styles.listStyle}
+            renderItem={({ item }) => (
+              <TouchableOpacity style={styles.touchStyle} onPress={() => {setQuery(item.text); setPlaceId(item.id.toString())}}>
+                <Text style={styles.itemStyle}>{item.text}</Text>
+              </TouchableOpacity>
+            )}
+          />
+      </View>    
+      <InputText placeholder={"Salón"} value={place_detail} onChangeText={setPlaceDetail} ></InputText>  
+      <TextArea placeholder={"Descripción"}  value={details} onChangeText={setDetails}></TextArea>
         <ButtonText name={"Seleccionar imagen"} style={styles.btn} background={'outline'} value={poster} evento={() => _pickImage().then((result) => {if(!result.cancelled){setImageB64(result.base64)}})}></ButtonText>
         <ButtonText name={"Publicar"}  evento={createEvent}></ButtonText>
       </View>
