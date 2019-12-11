@@ -216,17 +216,14 @@ const NewEventView = ({create}) => {
               top: 4,
               paddingLeft: 10,
             },
-            /*dateInput: {
-              marginLeft: 36,
-              color: '#000',
-              width: '200%'
+            placeholderText:{
+              color: 'rgba(255,255,255,0.3)',
+              fontSize: 18,
             },
-             datePicker: {
-              color: 'black'
-            },
-            datePickerCon: {
-              color: 'black'
-            }*/
+            dateText:{
+              color: '#FFF',
+              fontSize: 18,
+            }
           }}
           onDateChange={setDate}
           
