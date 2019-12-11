@@ -11,7 +11,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import { validateSession } from '../Authentication';
-
+import CheckBoxList from "../CheckBoxList/index";
 import { useSelector, useDispatch } from 'react-redux';
 import { getPlaces, getAditionals, getSession } from '../../../store/selectors';
 
@@ -84,6 +84,19 @@ let auto = [
 {text: '933 CASE CAN Area de salúd',  id: 63},
 {text: '934 Complejo Clínica de Santa Rosa',  id: 64},
 ];
+let dataTags={
+  tipo:[
+    {id:1, name: "Conferencia" },
+    {id:2, name: "Concierto"},
+    {id:3, name: "Exposición"}
+  ],
+  area:[
+    {id:4, name: "Ciencia y Tecnología" },
+    {id:5, name: "Arte y Cultura"},
+    {id:6, name: "Economía y Política"},
+    {id:7, name: "Deporte y Recreación"}
+  ]
+}
 
 function findOption(query){
   if(!!query && query != undefined){
@@ -248,8 +261,17 @@ const NewEventView = ({create}) => {
       </View>    
       <InputText placeholder={"Salón"} value={place_detail} onChangeText={setPlaceDetail} ></InputText>  
       <TextArea placeholder={"Descripción"}  value={details} onChangeText={setDetails}></TextArea>
-        <ButtonText name={"Seleccionar imagen"} style={styles.btn} background={'outline'} value={poster} evento={() => _pickImage().then((result) => {if(!result.cancelled){setImageB64(result.base64)}})}></ButtonText>
-        <ButtonText name={"Publicar"}  evento={createEvent}></ButtonText>
+      <ButtonText name={"Seleccionar imagen"} style={styles.btn} background={'outline'} value={poster} 
+          evento={() =>
+             _pickImage().then((result) => {
+                if(!result.cancelled){setImageB64(result.base64)}})}>
+
+      </ButtonText>
+      <View style={styles.tagsContainer}>
+            <CheckBoxList data={dataTags.area} title={"Área"}></CheckBoxList>
+            <CheckBoxList data={dataTags.tipo} title={"Tipo"}></CheckBoxList>
+      </View>
+      <ButtonText name={"Publicar"}  evento={createEvent}></ButtonText>
       </View>
     );
   }

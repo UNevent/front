@@ -15,6 +15,8 @@ export default EStyleSheet.create({
     backgroundColor:'rgba(0,0,0,0.35)',
     borderWidth: 0,
     marginHorizontal:25,    
+    marginTop: '0.5rem',
+    marginBottom: '0.5rem',
   },
   containerStyle:{
     width: WIDTH - 55,
@@ -53,7 +55,16 @@ export default EStyleSheet.create({
   },
   itemStyle:{    
     color: 'rgb(255,255,255)' ,
-    marginBottom: '0.5rem'
+    marginBottom: '0.5rem',
+    fontSize: 16,
 
+  },
+  tagsContainer:{
+    marginHorizontal:25,
+    marginVertical:  7,
+    justifyContent: 'space-between',
+    flex:2,
+    flexDirection: 'row'
+    
   }
 });
