@@ -22,7 +22,7 @@ export default EStyleSheet.create({
     height: WIDTH /5
   },
   containerDate:{
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
@@ -37,8 +37,7 @@ export default EStyleSheet.create({
   },
   follow:{
     flex: 1,
-    flexDirection: 'row-reverse',
-    justifyContent: 'flex-end',
+    borderWidth: 0,
     alignItems: 'center',
     
   },

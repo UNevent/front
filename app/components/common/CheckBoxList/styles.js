@@ -6,14 +6,14 @@ const { width: WIDTH } = Dimensions.get('window')
 export default EStyleSheet.create({
   container:{
     backgroundColor: 'rgba(0,0,0,0.35)',
-    borderColor:  'rgba(220,220,255,0.5)',
+    borderColor:  'rgba(220,220,255,0.3)',
     borderWidth: 1,
     borderRadius: 5,
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     alignContent: 'flex-start',
     padding: '0.2rem',
-    width: '50%',
+    //width: '50%',
     margin: '1rem'
   },
   titleStyle:{

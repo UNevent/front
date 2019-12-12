@@ -19,8 +19,7 @@ const CardHeader = ({  event, place, username,followers, follow, day, month }) =
           
         </View>
         <View style={styles.follow}>
-          <ButtonFav check={follow}></ButtonFav>
-          <Text>{followers}</Text>
+          <ButtonFav check={follow} title={followers.toString()}></ButtonFav>
         </View>   
       </View>
     </View>

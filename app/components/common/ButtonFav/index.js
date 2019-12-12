@@ -4,13 +4,15 @@ import styles from './styles';
 import PropTypes from 'prop-types'
 
 
-const ButtonFav = ({ check }) => {
+const ButtonFav = ({ check, title }) => {
   setState=()=>{
     this.check= !this.check
     console.log(check)
   }
   return (
     <CheckBox
+    containerStyle={styles.containerStyle}
+      title={title}
       center
       iconRight
       iconType={'material'}
@@ -25,11 +27,13 @@ const ButtonFav = ({ check }) => {
 }
 
 ButtonFav.propTypes = {
-  state: PropTypes.bool
+  state: PropTypes.bool,
+  title: PropTypes.string
 }
 
 ButtonFav.defaultProps = {
-  state: false
+  state: false,
+  title: ''
 }
 
 export default ButtonFav;
