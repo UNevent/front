@@ -45,3 +45,12 @@ export function setAditionals(estado, accion){
 		}
 	}
 }
+
+export function setTags(estado, accion){
+	const {etiquetas} = accion;
+	
+	return {
+		...estado,
+		etiquetas,
+	}
+}

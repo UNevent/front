@@ -12,8 +12,8 @@ import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import { validateSession } from '../Authentication';
 import CheckBoxList from "../CheckBoxList/index";
-import { useSelector, useDispatch } from 'react-redux';
-import { getPlaces, getAditionals, getSession } from '../../../store/selectors';
+import { useSelector } from 'react-redux';
+import { getPlaces, getAditionals, getSession, getSelectedTags } from '../../../store/selectors';
 
 //let auto = () => {return useSelector(getPlaces)};
 
@@ -156,6 +156,8 @@ const NewEventView = ({create}) => {
 
   const auth_selector = useSelector(getSession);
 
+  const state_selector = useSelector(getSelectedTags);
+
   const createEvent = () => {
     uploadImage(imageB64m).then(
       (response) => {
@@ -163,7 +165,7 @@ const NewEventView = ({create}) => {
           if(title != '' && date != ''){
             validateSession(auth_selector.token, auth_selector.client, auth_selector.user).then(
               (respuesta) => (
-                newEvent(respuesta.data.id, place_id, title, date, place_detail, details, response.data.link, [2,5]).then(
+                newEvent(respuesta.data.id, place_id, title, date, place_detail, details, response.data.link, state_selector).then(
                   (response) =>{
                     if(!response.success){
                       if(response.data){

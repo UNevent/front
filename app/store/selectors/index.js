@@ -51,3 +51,7 @@ export function getPlaces(state){
 
 	return arr;
 }
+
+export function getSelectedTags(state){
+	return state.etiquetas;
+}
