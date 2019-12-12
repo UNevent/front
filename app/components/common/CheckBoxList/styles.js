@@ -12,8 +12,9 @@ export default EStyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     alignContent: 'flex-start',
-    padding: '0.2rem'
-
+    padding: '0.2rem',
+    width: '50%',
+    margin: '1rem'
   },
   titleStyle:{
     fontSize: 16,

@@ -1,4 +1,4 @@
-import { AUTH_USER, SAVE_EVENTS_DATA, SAVE_ADITIONAL } from './types';
+import { AUTH_USER, SAVE_EVENTS_DATA, SAVE_ADITIONAL, SAVE_TAGS } from './types';
 
 export const authenticate = (user, pass, client, token) => ({
 	type: AUTH_USER,
@@ -17,4 +17,9 @@ export const saveAditionals = (tags, places) => ({
 	type: SAVE_ADITIONAL,
 	tags, 
 	places,
+});
+
+export const saveTags = (etiquetas) => ({
+	type: SAVE_TAGS,
+	etiquetas,
 });

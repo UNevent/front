@@ -62,9 +62,9 @@ export default EStyleSheet.create({
   tagsContainer:{
     marginHorizontal:25,
     marginVertical:  7,
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     flex:2,
     flexDirection: 'row'
     
-  }
+  },
 });

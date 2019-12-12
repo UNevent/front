@@ -2,6 +2,7 @@ import React from 'react';
 import AccessView from '../../components/views/AccessView';
 import { useSelector } from 'react-redux';
 import { isAuth } from '../../store/selectors';
+import { AppLoading } from 'expo';
 
 const LandingScreen = ({ navigation }) => {
 	const isLoged_selector = useSelector(isAuth);
@@ -15,10 +16,10 @@ const LandingScreen = ({ navigation }) => {
 	);
 
 	return <AccessView 
-		goToRegister={() => navigation.navigate('RegisterScreen')}
-		goToLogin={() => navigation.navigate('LoginScreen')}
-		//goInvited={() => navigation.navigate('HomeInvitedScreen')}
-	/>;
+					goToRegister={() => navigation.navigate('RegisterScreen')}
+					goToLogin={() => navigation.navigate('LoginScreen')}
+					//goInvited={() => navigation.navigate('HomeInvitedScreen')}
+				/>;
 }
 
 export default LandingScreen;
