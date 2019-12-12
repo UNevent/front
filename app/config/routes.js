@@ -15,6 +15,7 @@ export const tags = '/tags';
 export const places = '/places';
 export const event_tags = '/event_tags';
 export const events = '/events';
+export const events_filter = '/events/filter_all/';
 export const eventsfull = '/events/full';
 export const interests = '/interests';
 export const auth_register = '/auth';
