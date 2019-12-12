@@ -8,8 +8,8 @@ const ButtonIcon = ({ icon, size, evento }) => {
   return (
     <Icon
       name={icon}
-      type='font-awesome'
-      size={size}
+      size={size}      
+      color= {'#2089dc'}
       onPress={evento} />
        
   )
@@ -21,7 +21,7 @@ ButtonIcon.propTypes = {
 }
 
 ButtonIcon.defaultProps = {
-  size: 20
+  size: 25
 }
 
 export default ButtonIcon;

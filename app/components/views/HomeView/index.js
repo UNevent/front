@@ -3,7 +3,7 @@ import styles  from './styles';
 import { SafeAreaView, View, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import Images from '../../../assets/Images';
 import CardEvent from '../../common/CardEvent';
-import ButtonIcon from "../../common/ButtonIcon";
+import { Icon } from 'react-native-elements'
 
 
 const HomeView = ({ goToNewEvent, events, goToEvent }) => {
@@ -29,7 +29,11 @@ const HomeView = ({ goToNewEvent, events, goToEvent }) => {
           />
         </SafeAreaView >
         <View style={styles.buttonew}>
-          <ButtonIcon icon={'plus-circle'} size={50} evento={goToNewEvent}></ButtonIcon>
+          <Icon
+            name='add-circle'
+            size={60}      
+            color= {'#2089dc'}
+            onPress={goToNewEvent} />
         </View>
     </ImageBackground>
 

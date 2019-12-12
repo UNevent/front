@@ -31,8 +31,9 @@ export default EStyleSheet.create({
     height: WIDTH /3
   },
   date:{
-    fontSize:22,
-    color: '#333399'
+    fontSize:20,
+    color: '#333399',
+    fontWeight:'bold'
   },
   follow:{
     flex: 1,

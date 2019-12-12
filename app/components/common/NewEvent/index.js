@@ -88,7 +88,8 @@ let dataTags={
   tipo:[
     {id:1, name: "Conferencia" },
     {id:2, name: "Concierto"},
-    {id:3, name: "Exposición"}
+    {id:3, name: "Exposición"},
+    {id:8, name: "Competencia"}
   ],
   area:[
     {id:4, name: "Ciencia y Tecnología" },
