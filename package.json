@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^2.1.0",
-    "expo": "^34.0.1",
+    "expo": "^48.0.0",
     "expo-image-picker": "^8.0.0",
     "npm-upgrade": "^2.0.2",
     "prop-types": "^15.7.2",
